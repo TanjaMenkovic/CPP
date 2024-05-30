@@ -15,7 +15,7 @@
 
 # include <string>
 # include <iostream>
-# include <iomanip>
+# include <iomanip> //std::setw
 
 class Contact {
 	private:
@@ -30,15 +30,18 @@ class Contact {
 		Contact();
 		~Contact();
 		
-		void		Contact::set_index(int index);
-		int			Contact::get_index(void) const;
-		std::string	Contact::get_firstname(void) const;
-		std::string	Contact::get_lastname(void) const;
-		std::string	Contact::get_nickname(void) const;
-		std::string	Contact::get_phonenumber(void) const;
-		std::string	Contact::get_darkestsecret(void) const;
+		void		set_index(int index);
+
+		int			get_index(void) const;
+		std::string	get_firstname(void) const;
+		std::string	get_lastname(void) const;
+		std::string	get_nickname(void) const;
+		std::string	get_phonenumber(void) const;
+		std::string	get_darkestsecret(void) const;
 
 		void		init(int index);
-}
+		void		display(void) const;
+		void		view(void) const;
+};
 
 #endif
