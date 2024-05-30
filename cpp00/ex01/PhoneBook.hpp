@@ -25,8 +25,8 @@ class PhoneBook {
 		~PhoneBook();
 
 		void	add_contact(void);
-		void	search_contact(void);
-		int		display_contacts(void);
+		void	search_contact(void) const;
+		int		display_contacts(void) const;
 };
 
 #endif
