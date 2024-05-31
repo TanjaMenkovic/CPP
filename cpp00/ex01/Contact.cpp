@@ -13,7 +13,7 @@
 #include "Contact.hpp"
 
 /*
-default constructor
+destructor
 */
 Contact::~Contact()
 {
