@@ -52,7 +52,8 @@ int	main(void)
 	std::cout << "Available phonebook options are:\n" << std::endl;
 	std::cout << "ADD - add a new contact to your phone book." << std::endl;
 	std::cout << "SEARCH - search for a specific contact inside of your phone book." << std::endl;
-	std::cout << "EXIT - exit the program.\n" << std::endl;
+	std::cout << "EXIT - exit the program." << std::endl;
+	std::cout << "Thanks fou using my PhoneBook!\n" << std::endl;
 	std::cout << "-----------------------------------------------------\n" << std::endl;
 
 	while (1)
