@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmenkovi <tmenkovi@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/03 08:46:09 by tmenkovi          #+#    #+#             */
-/*   Updated: 2024/06/03 08:46:11 by tmenkovi         ###   ########.fr       */
+/*   Created: 2024/06/03 10:51:42 by tmenkovi          #+#    #+#             */
+/*   Updated: 2024/06/03 10:51:44 by tmenkovi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void Harl::info(void)
 
 void Harl::warning(void)
 {
-	cout << "I think I deserve to have some extra bacon for free. I’ve been coming for years whereas you started working here since last month." << endl;
+	cout << "I think I deserve to have some extra bacon for free.\nI’ve been coming for years whereas you started working here since last month." << endl;
 }
 
 void Harl::error(void)
@@ -54,10 +54,7 @@ void Harl::complain(string level)
 
     int levelNum = getLevel(level);
     if (levelNum == -1)
-    {
-	    cerr << "Could not find that compalint. Please try again."<< endl;
         return ;
-    }
 
     // pointers to private functions
     void (Harl::*complain_f[4])(void) =
@@ -68,5 +65,7 @@ void Harl::complain(string level)
 		&Harl::error
 	};
 
+    cout << "[" << level << "]" << endl;
     (this->*complain_f[levelNum])();
+    cout << endl;
 }
