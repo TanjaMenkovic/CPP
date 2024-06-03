@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tmenkovi <tmenkovi@student.hive.fi>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/06/03 08:42:42 by tmenkovi          #+#    #+#             */
+/*   Updated: 2024/06/03 08:42:43 by tmenkovi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Zombie.hpp"
 
 using std::cin;
@@ -20,7 +32,7 @@ int	main(void)
         	{
             		cin.clear();
             		clearerr(stdin);
-			cout << endl;
+				cout << endl;
         	}
         	if (!zombies_name.empty())
             		break ;

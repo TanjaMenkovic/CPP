@@ -1,37 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Weapon.cpp                                         :+:      :+:    :+:   */
+/*   Harl.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmenkovi <tmenkovi@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/03 08:44:08 by tmenkovi          #+#    #+#             */
-/*   Updated: 2024/06/03 08:44:13 by tmenkovi         ###   ########.fr       */
+/*   Created: 2024/06/03 08:46:17 by tmenkovi          #+#    #+#             */
+/*   Updated: 2024/06/03 08:46:20 by tmenkovi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Weapon.hpp"
+#ifndef HARL_H
+# define HARL_H
 
-Weapon::Weapon(std::string type) : _type(type)
-{
-}
+# include <iostream>
+# include <iomanip>
+# include <string>
 
-Weapon::~Weapon()
-{
-}
+using std::string;
+using std::cout;
+using std::cin;
+using std::endl;
+using std::cerr;
 
-void Weapon::setType(std::string type)
-{
-	if (type.empty())
-	{
-		std::cout << "Please give a type to the weapon." << std::endl;
-		return ;
-	}
+class Harl {
+	private:
+        void debug(void);
+        void info(void);
+        void warning(void);
+        void error(void);
 
-	this->_type = type;
-}
+	public:
+		void complain(string level);
+};
 
-const std::string& Weapon::getType()
-{
-	return this->_type;
-}
+int  getLevel(string level);
+
+#endif
