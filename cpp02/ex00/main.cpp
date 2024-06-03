@@ -10,4 +10,19 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "Fixed.hpp"
 
+int main(void)
+{
+	Fixed	a; //default constructor
+	Fixed	b(a); // copy constructor
+	Fixed	c;
+
+	c = b; // copy assignment operator overload
+
+	cout << a.getRawBits() << endl;
+	cout << b.getRawBits() << endl;
+	cout << c.getRawBits() << endl;
+
+	return 1;
+}
