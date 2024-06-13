@@ -17,7 +17,7 @@ bool	bsp(Point const a, Point const b, Point const c, Point const point);
 
 int main(void)
 {
-	if ( bsp( Point(1, 1), Point(10, 30), Point(20, 0), Point(30, 15) ) == true ) {
+	if ( bsp( Point(0, 0), Point(10, 30), Point(20, 0), Point(30, 15) ) == true ) {
         cout << "Point is in the triangle\n" << endl;
     } else {
         cout << "Point is not in the triangle\n" << endl;
