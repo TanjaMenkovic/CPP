@@ -21,8 +21,10 @@ using std::ostream;
 
 class Fixed {
 	private:
-		int			_value;
+		int					_value;
 		static const int	_bits = 8;
+
+		static int customRound(float value); // Custom rounding function
 
 	public:
 		Fixed(void); // default constructor
@@ -42,16 +44,16 @@ class Fixed {
 		float	toFloat(void) const;
 		int	toInt(void) const;
 
-		bool operator>(const Fixed &nbr);
-        	bool operator<(const Fixed &nbr);
-        	bool operator<=(const Fixed &nbr);
-       		bool operator>=(const Fixed &nbr);
-        	bool operator==(const Fixed &nbr);
-        	bool operator!=(const Fixed &nbr);
-        	Fixed operator+(const Fixed &nbr);
-        	Fixed operator-(const Fixed &nbr);
-        	Fixed operator*(const Fixed &nbr);
-		Fixed operator/(const Fixed &nbr);
+		bool operator>(const Fixed &nbr) const;
+        bool operator<(const Fixed &nbr) const;
+        bool operator<=(const Fixed &nbr) const;
+       	bool operator>=(const Fixed &nbr) const;
+        bool operator==(const Fixed &nbr) const;
+        bool operator!=(const Fixed &nbr) const;
+        Fixed operator+(const Fixed &nbr) const;
+        Fixed operator-(const Fixed &nbr) const;
+        Fixed operator*(const Fixed &nbr) const;
+		Fixed operator/(const Fixed &nbr) const;
 		Fixed &operator++(void);
 		Fixed operator++(int);
 		Fixed &operator--(void);

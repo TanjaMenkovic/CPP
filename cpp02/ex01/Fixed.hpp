@@ -24,6 +24,8 @@ class Fixed {
 		int			_value;
 		static const int	_bits = 8;
 
+		static int customRound(float value); // Custom rounding function
+
 	public:
 		Fixed(void); // default constructor
 		

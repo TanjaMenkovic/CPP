@@ -12,29 +12,22 @@
 
 #include "Point.hpp"
 
-Point::Point(void) : _x(0), _y(0) 
-{
+Point::Point(void) : _x(0), _y(0) {}
+
+Point::Point(const float x, const float y) : _x(x), _y(y) {}
+
+Point::Point(const Point &to_copy) : _x(to_copy.getX()), _y(to_copy.getY()) {}
+
+Point& Point::operator=(const Point &original) {
+    if (this == &original) {
+        return *this;
+    }
+    // Since _x and _y are const, they cannot be reassigned.
+    // So the assignment operator just returns *this.
+    return *this;
 }
 
-Point::Point(const float x, const float y) : _x(x), _y(y) 
-{
-}
-
-Point::Point(const Point &to_copy) 
-{
-	*this = to_copy;
-}
-
-Point& Point::operator=(const Point &original)
-{
-	(Fixed)this->_x = original.getX();
-	(Fixed)this->_y = original.getY();
-	return *this;
-}
-
-Point::~Point(void) 
-{
-}
+Point::~Point(void) {}
 
 Fixed Point::getX(void) const 
 {

@@ -14,9 +14,7 @@
 
 static Fixed abs(Fixed x)
 {
-	if (x < 0)
-		return x * (-1);
-	return x;
+	return (x < 0) ? x * -1 : x;
 }
 
 /* Formula
@@ -27,23 +25,20 @@ static Fixed abs(Fixed x)
 
 static Fixed triangleArea(Point const p1, Point const p2, Point const p3)
 {
-	return (abs((p1.getX() * (p2.getY() - p3.getY())
+	return ((p1.getX() * (p2.getY() - p3.getY())
 		+ p2.getX() * (p3.getY() - p1.getY())
-		+ p3.getX() * (p1.getY() - p2.getY())) / 2));
+		+ p3.getX() * (p1.getY() - p2.getY())) / 2);
 }
 
 bool bsp(Point const a, Point const b, Point const c, Point const point)
 {
-	Fixed abcArea = triangleArea(a, b, c);
-   	Fixed pbcArea = triangleArea(point, b, c);
-    	Fixed pacArea = triangleArea(point, c, a);
-    	Fixed pabArea = triangleArea(point, a, b);
-
-	if (pbcArea == 0 || pacArea == 0 || pabArea == 0)
-		return false;
+	Fixed abcArea = abs(triangleArea(a, b, c));
+   	Fixed pbcArea = abs(triangleArea(point, b, c));
+    Fixed pacArea = abs(triangleArea(point, c, a));
+    Fixed pabArea = abs(triangleArea(point, a, b));
 
 	cout << "Area of partitioned triangles: " << pbcArea + pacArea + pabArea << endl;
 	cout << "Area of original triangle: " << abcArea << endl;
 
-	return (abcArea == (pbcArea + pacArea + pabArea));
+	return (abs(abcArea - (pbcArea + pacArea + pabArea)) != 0);
 }

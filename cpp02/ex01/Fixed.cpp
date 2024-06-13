@@ -12,6 +12,10 @@
 
 #include "Fixed.hpp"
 
+int Fixed::customRound(float value) {
+    return (value >= 0) ? static_cast<int>(value + 0.5f) : static_cast<int>(value - 0.5f);
+}
+
 Fixed::Fixed(void) : _value(0) {
 	cout << "Default constructor called" << endl;
 }
@@ -20,7 +24,7 @@ Fixed::Fixed(const int inInt) : _value(inInt * (1 << Fixed::_bits)) {
 	cout << "Int constructor called" << endl;
 }
 
-Fixed::Fixed(const float inFloat) : _value(roundf(inFloat * (1 << Fixed::_bits)) ) {
+Fixed::Fixed(const float inFloat) : _value(customRound(inFloat * (1 << Fixed::_bits)) ) {
 	cout << "Float constructor called" << endl;
 }
 
@@ -42,7 +46,6 @@ Fixed::~Fixed(void) {
 
 int Fixed::getRawBits(void) const
 {
-	cout << "getRawBits() member function called" << endl;
 	return this->_value;
 }
 
