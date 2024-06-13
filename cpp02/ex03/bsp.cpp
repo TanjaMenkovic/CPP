@@ -40,5 +40,5 @@ bool bsp(Point const a, Point const b, Point const c, Point const point)
 	cout << "Area of partitioned triangles: " << pbcArea + pacArea + pabArea << endl;
 	cout << "Area of original triangle: " << abcArea << endl;
 
-	return (abs(abcArea - (pbcArea + pacArea + pabArea)) != Fixed(0.01f));
+	return (abcArea == (pbcArea + pacArea + pabArea));
 }
