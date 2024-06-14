@@ -18,12 +18,11 @@ Point::Point(const float x, const float y) : _x(x), _y(y) {}
 
 Point::Point(const Point &to_copy) : _x(to_copy.getX()), _y(to_copy.getY()) {}
 
-Point& Point::operator=(const Point &original) {
+Point& Point::operator=(const Point &original) 
+{
     if (this == &original) {
         return *this;
     }
-    // Since _x and _y are const, they cannot be reassigned.
-    // So the assignment operator just returns *this.
     return *this;
 }
 

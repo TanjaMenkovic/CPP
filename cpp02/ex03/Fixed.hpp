@@ -24,7 +24,8 @@ class Fixed {
 		int					_value;
 		static const int	_bits = 8;
 
-		static int customRound(float value); // Custom rounding function
+		// Custom rounding function
+		static int customRound(float value); 
 
 	public:
 		Fixed(void); // default constructor
@@ -33,10 +34,13 @@ class Fixed {
 		Fixed(const int inInt);
 		Fixed(const float inFloat);
 
-		Fixed(const Fixed &to_copy); // copy constructor
-		~Fixed(void); //destructor
+		// copy constructor
+		Fixed(const Fixed &to_copy);
+		//destructor
+		~Fixed(void); 
 
-		Fixed &operator=(const Fixed &original); // copy assignment operator overload
+		// copy assignment operator overload
+		Fixed &operator=(const Fixed &original); 
 
 		int	getRawBits(void) const;
 		void	setRawBits(int const raw);

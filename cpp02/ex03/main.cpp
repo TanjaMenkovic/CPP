@@ -10,13 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
 #include "Point.hpp"
 
-// bool	bsp(Point const a, Point const b, Point const c, Point const point);
-
 /*
-
 Input: A = (0, 0), B = (10, 30), C = (20, 0), P(10, 2)
 Output: Inside
 Explanation:
@@ -48,7 +44,6 @@ Calculate area of the triangle PAB. We can use the same formula for this. Let th
 Calculate area of the triangle PBC. Let this area be A2. 
 Calculate area of the triangle PAC. Let this area be A3. 
 If P lies inside the triangle, then A1 + A2 + A3 must be equal to A. 
-
 */
 
 int main(void)
