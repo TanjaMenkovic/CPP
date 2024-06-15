@@ -12,6 +12,14 @@
 
 #include "FragTrap.hpp"
 
+FragTrap::FragTrap(void) : ClapTrap()
+{
+	this->_hitPoints = 100;
+	this->_energyPoints = 100;
+	this->_attackDamage = 30;
+	cout << "Sub Class (FragTrap) constructor has been called" << endl;
+}
+
 FragTrap::FragTrap(string name) : ClapTrap(name)
 {
 	this->_hitPoints = 100;

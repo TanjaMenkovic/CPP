@@ -12,6 +12,14 @@
 
 #include "ScavTrap.hpp"
 
+ScavTrap::ScavTrap(void) : ClapTrap()
+{
+	this->_hitPoints = 100;
+	this->_energyPoints = 50;
+	this->_attackDamage = 20;
+	cout << "Sub Class (ScavTrap) constructor has been called" << endl;
+}
+
 ScavTrap::ScavTrap(string name) : ClapTrap(name)
 {
 	this->_hitPoints = 100;

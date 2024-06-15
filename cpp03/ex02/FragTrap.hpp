@@ -19,6 +19,8 @@ class FragTrap : public ClapTrap
 {
 	public:
 		FragTrap(string name);
+		FragTrap(const FragTrap &to_copy);
+		FragTrap& operator=(const FragTrap &original);
 		~FragTrap(void);
 
 		void highFivesGuys(void);

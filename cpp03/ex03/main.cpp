@@ -1,32 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmenkovi <tmenkovi@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/06 16:05:14 by tmenkovi          #+#    #+#             */
-/*   Updated: 2024/06/06 16:05:24 by tmenkovi         ###   ########.fr       */
+/*   Created: 2024/06/06 16:08:05 by tmenkovi          #+#    #+#             */
+/*   Updated: 2024/06/06 16:08:15 by tmenkovi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCAVTRAP_HPP
-# define SCAVTRAP_HPP
+#include "DiamondTrap.hpp"
 
-# include "ClapTrap.hpp"
-class ScavTrap : public ClapTrap {
+using std::cout;
+using std::endl;
 
-	public:
-		ScavTrap(string _name);
-		ScavTrap(const ScavTrap &to_copy);
-		ScavTrap& operator=(const ScavTrap &original);
-		~ScavTrap(void);
+int main(void)
+{
+	DiamondTrap	diamondTrap("Sahra");
 
-		void attack(const string& target);
-		void guardGate(void);
+	diamondTrap.whoAmI();
+	diamondTrap.attack("random human");
+	diamondTrap.guardGate();
+	diamondTrap.highFivesGuys();
+	diamondTrap.takeDamage(20);
+	diamondTrap.beRepaired(10);
+	diamondTrap.takeDamage(100);
 
-	private:
-		ScavTrap(void);
-};
-
-#endif
+	return 0;
+}

@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmenkovi <tmenkovi@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/06 16:04:23 by tmenkovi          #+#    #+#             */
-/*   Updated: 2024/06/06 16:04:25 by tmenkovi         ###   ########.fr       */
+/*   Created: 2024/06/06 16:06:06 by tmenkovi          #+#    #+#             */
+/*   Updated: 2024/06/06 16:06:07 by tmenkovi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ using std::endl;
 
 class ClapTrap {
 	public:
+		ClapTrap(void);
 		ClapTrap(string name);
 		ClapTrap(const ClapTrap &to_copy);
 		ClapTrap& operator=(const ClapTrap &original);
@@ -31,7 +32,7 @@ class ClapTrap {
 		void takeDamage(unsigned int amount);
 		void beRepaired(unsigned int amount);
 
-	private:
+	protected:
 		string			_name;
 		unsigned int	_hitPoints;
 		unsigned int	_energyPoints;

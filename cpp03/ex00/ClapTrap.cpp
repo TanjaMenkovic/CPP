@@ -15,7 +15,7 @@
 ClapTrap::ClapTrap(string name)
 	: _name(name), _hitPoints(10), _energyPoints(10), _attackDamage(0)
 {
-	cout << "Default constructor <" << name << "> has been called!" << endl;
+	cout << "ClapTrap <" << name << "> has been called!" << endl;
 }
 
 ClapTrap::ClapTrap(const ClapTrap &to_copy)
@@ -24,7 +24,6 @@ ClapTrap::ClapTrap(const ClapTrap &to_copy)
 	this->_hitPoints = to_copy._hitPoints;
 	this->_energyPoints = to_copy._energyPoints;
 	this->_attackDamage = to_copy._attackDamage;
-	cout << "Copy constructor has been called!" << endl;
 }
 
 ClapTrap& ClapTrap::operator=(const ClapTrap &original)
@@ -36,13 +35,12 @@ ClapTrap& ClapTrap::operator=(const ClapTrap &original)
 		this->_energyPoints = original._energyPoints;
 		this->_attackDamage = original._attackDamage;
 	}
-	cout << "Copy assignment constructor has been called!" << endl;
 	return *this;
 }
 
 ClapTrap::~ClapTrap(void)
 {
-	cout << "Destructor has been called" << endl;
+	cout << "ClapTrap has been destroyed!" << endl;
 };
 
 void ClapTrap::attack(const string& target)
@@ -52,7 +50,8 @@ void ClapTrap::attack(const string& target)
 		cout << "ClapTrap is out of energy points!" << endl;
 		return ;
 	}
-	cout << "ClapTrap " << this->_name << " attacks " << target << "!" << endl;
+	cout << "ClapTrap " << this->_name << " attacks " << target 
+		<< ", causing " << this->_attackDamage << " points of damage!" << endl;
 	this->_energyPoints -= 1;
 }
 
