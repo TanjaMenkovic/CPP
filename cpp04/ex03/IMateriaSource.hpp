@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   IMateriaSouce.hpp                                  :+:      :+:    :+:   */
+/*   IMateriaSource.hpp                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmenkovi <tmenkovi@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -26,6 +26,6 @@ class IMateriaSource
 {
 	public:
 		virtual ~IMateriaSource(void) {}
-		virtual void learnMateria( AMateria* materia ) = 0;
-		virtual AMateria* createMateria( const std::string& type ) = 0;
+		virtual void learnMateria(AMateria* materia) = 0;
+		virtual AMateria* createMateria(const string& type) = 0;
 };

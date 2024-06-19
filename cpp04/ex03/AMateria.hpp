@@ -22,6 +22,8 @@ using std::cin;
 using std::endl;
 using std::cerr;
 
+class ICharacter;
+
 class AMateria
 {
 	protected:

@@ -13,14 +13,6 @@
 #pragma once
 
 #include "AMateria.hpp"
-#include <iostream>
-#include <string>
-
-using std::string;
-using std::cout;
-using std::cin;
-using std::endl;
-using std::cerr;
 
 class Cure: public AMateria
 {
@@ -29,6 +21,7 @@ class Cure: public AMateria
 		Cure(const Cure& cure);
 		~Cure(void);
 		Cure& operator=(const Cure& cure);
+
 		AMateria* clone(void) const;
 		void use(ICharacter& target);
 };

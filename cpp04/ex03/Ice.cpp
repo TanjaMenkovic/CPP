@@ -14,7 +14,7 @@
 
 Ice::Ice(void): AMateria("ice")
 {
-	cout << "Ice: Default constructor called" << endl;
+	cout << "Ice has beed created" << endl;
 }
 
 Ice::Ice(const Ice& ice): AMateria("ice")
@@ -25,7 +25,7 @@ Ice::Ice(const Ice& ice): AMateria("ice")
 
 Ice::~Ice(void)
 {
-	cout << "Ice: Destructor called, memory address = " << this << endl;
+	cout << "Ice has beed destroyed at address " << this << endl;
 }
 
 Ice& Ice::operator=(const Ice& ice)

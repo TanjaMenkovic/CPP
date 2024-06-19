@@ -14,7 +14,7 @@
 
 Cure::Cure(void): AMateria("cure")
 {
-	cout << "Cure: Default constructor called" << endl;
+	cout << "Cure has beed created" << endl;
 }
 
 Cure::Cure(const Cure& cure): AMateria("cure")
@@ -25,7 +25,7 @@ Cure::Cure(const Cure& cure): AMateria("cure")
 
 Cure::~Cure(void)
 {
-	cout << "Cure: Destructor called, memory address = " << this << endl;
+	cout << "Cure has beed destroyed at address " << this << endl;
 }
 
 Cure& Cure::operator=(const Cure& cure)

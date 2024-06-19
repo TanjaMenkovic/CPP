@@ -14,35 +14,35 @@
 
 AMateria::AMateria(void): _type("Unknown type")
 {
-	cout << "AMateria: Default constructor called" << endl;
+	cout << "Abstract materia has beed created" << endl;
 }
 
 AMateria::AMateria(const string& type): _type(type)
 {
-	cout << "AMateria: Type constructor called" << endl;
+	cout << "AMateria type constructor called" << endl;
 }
 
 AMateria::AMateria(const AMateria& materia): _type(materia._type)
 {
-	cout << "AMateria: Copy constructor called" << endl;
+	cout << "AMateria copy constructor called" << endl;
 }
 
 AMateria::~AMateria(void)
 {
-	cout << "AMateria: Destructor called, memory address = " << this << endl;
+	cout << "AMateria has beed destroyed at address " << this << endl;
 }
 
 AMateria& AMateria::operator=(const AMateria& materia)
 {
-	cout << "AMateria: Assignation operator called" << endl;
+	cout << "AMateria assignation operator called" << endl;
 	this->_type = materia._type;
 	return (*this);
 }
 
-// void AMateria::use(ICharacter& target)
-// {
-// 	cout << "* shoots an ice bolt at " << target.getName() << " *" ;
-// }
+void AMateria::use(ICharacter& target)
+{
+	cout << "* AMateria abstractly used on " << target.getName() << " *" ;
+}
 
 const string& AMateria::getType(void) const
 {
