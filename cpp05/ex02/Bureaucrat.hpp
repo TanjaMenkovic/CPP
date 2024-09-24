@@ -3,12 +3,12 @@
 
 #include <iostream>
 #include <string>
-#include "Form.hpp"
+#include "AForm.hpp"
 
 #define HIGHTEST 1
 #define LOWEST 150
 
-class Form;
+class AForm;
 
 class Bureaucrat
 {
@@ -30,7 +30,8 @@ class Bureaucrat
         void        incrementGrade();
         void        decrementGrade();
 
-        void	    signForm(Form &form);
+        void	    signForm(AForm &form);
+        void	    executeForm(AForm const &form);
 
         class GradeTooHighException: public std::exception
         {

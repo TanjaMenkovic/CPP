@@ -1,24 +1,24 @@
 #include "Form.hpp"
 
-Form::Form(): name("Unnamed"), isSigned(0), gradeSign(LOWEST), gradeExec(LOWEST) {}
+Form::Form(): name("Unnamed"), isSigned(false), gradeSign(HIGHTEST), gradeExec(HIGHTEST) {}
 
-Form::Form(std::string name, bool isSigned, int gradeSign, int gradeExec): name(name)
+Form::Form(std::string &name, int &gradeSign, int &gradeExec): name(name), gradeSign(gradeSign), gradeExec(gradeExec)
 {
 
-	if (gradeSign < HIGHTEST)
+	if (this->gradeSign < HIGHTEST)
 	    throw Form::GradeTooHighException();
-	else if (gradeSign > LOWEST)
+	else if (this->gradeSign > LOWEST)
 	    throw Form::GradeTooLowException();
-	this->gradeSign = gradeSign;
 
-    if (gradeExec < HIGHTEST)
+	if (this->gradeExec < HIGHTEST)
 	    throw Form::GradeTooHighException();
-	else if (gradeExec > LOWEST)
-		throw Form::GradeTooLowException();
-	this->gradeExec = gradeExec;
+	else if (this->gradeExec > LOWEST)
+	    throw Form::GradeTooLowException();
+
+	this->isSigned = false;
 }
 
-Form::Form(const Form &copy): name(copy.getName() + "_copy")
+Form::Form(const Form &copy): name(copy.getName() + "_copy"), isSigned(copy.isSigned), gradeSign(copy.gradeSign), gradeExec(copy.gradeExec)
 {
 	*this = copy;
 }
@@ -54,18 +54,30 @@ int	Form::getGradeExec() const
 	return this->gradeExec;
 }
 
+void	Form::beSigned(const Bureaucrat &bur)
+{
+	if (bur.getGrade() > this->gradeSign)
+		throw Form::GradeTooLowException();
+	this->isSigned = true;
+	std::cout << "Bureaucrat " << bur.getName() << " successfully signed " << this->name << std::endl;
+}
+
 const char*	Form::GradeTooHighException::what() const throw()
 {
-	return ("The grade is too high! Hightest grade is 1.");
+	return ("The grade is too high!");
 }
 
 const char*	Form::GradeTooLowException::what() const throw()
 {
-	return ("The grade is too low! Lowest grade is 150.");
+	return ("The grade is too low!");
 }
 
 std::ostream	&operator <<(std::ostream &o, const Form &bur)
 {
-	o << << "Form name: " << bur.getName() << ", form grade " << bur.getGrade() << ".";
+	o << "Form name: " << bur.getName() <<  std::endl;
+	o << "Signed: " << bur.getIsSigned() << std::endl;
+	o << "Grade to sign: " << bur.getGradeSign() << std::endl;
+	o << "Grade to execute: " << bur.getGradeExec() << std::endl;
+
 	return o;
 }
