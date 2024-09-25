@@ -1,10 +1,10 @@
-NAME =
+NAME =	converter
 
 BUILD_FLAGS = -Wall -Wextra -std=c++11 -Werror
 
-SRC =	
+SRC =	ScalarConverter
 
-H =	
+H =		ScalarConverter
 
 SRC_SUFF = $(addsuffix .cpp, $(SRC))
 HEADER_SUFF = $(addsuffix .hpp, $(SRC))

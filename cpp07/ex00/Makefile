@@ -1,10 +1,10 @@
-NAME =
+NAME = bureaucrat
 
 BUILD_FLAGS = -Wall -Wextra -std=c++11 -Werror
 
-SRC =	
+SRC =	Bureaucrat
 
-H =	
+H =		Bureaucrat
 
 SRC_SUFF = $(addsuffix .cpp, $(SRC))
 HEADER_SUFF = $(addsuffix .hpp, $(SRC))
