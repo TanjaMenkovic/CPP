@@ -1,24 +1,23 @@
-NAME =
+NAME = array
 
 BUILD_FLAGS = -Wall -Wextra -std=c++11 -Werror
 
-SRC =	
-
-H =	
-
-SRC_SUFF = $(addsuffix .cpp, $(SRC))
-HEADER_SUFF = $(addsuffix .hpp, $(SRC))
-
-SRCO = $(addsuffix .o, $(SRC))
+SRC = main.cpp
+H = Array.hpp
+OBJS = $(SRC:.cpp=.o)
 
 .PHONY: all $(NAME) clean fclean re
+
 all: $(NAME)
 
-$(NAME): main.cpp $(SRC_SUFF) $(HEADER_SUFF)
-	c++ $(BUILD_FLAGS) $(SRC_SUFF) main.cpp -o $(NAME)
+$(NAME): $(OBJS) $(H)
+	c++ $(BUILD_FLAGS) $(OBJS) -o $(NAME)
+
+%.o: %.cpp $(H)
+	c++ $(BUILD_FLAGS) -c $< -o $@
 
 clean:
-	rm -f $(SRCSO)
+	rm -f $(OBJS)
 
 fclean: clean
 	rm -f $(NAME)
