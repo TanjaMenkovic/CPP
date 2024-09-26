@@ -1,10 +1,10 @@
-NAME =
+NAME = serializer
 
 BUILD_FLAGS = -Wall -Wextra -std=c++11 -Werror
 
-SRC =	
+SRC =	Serializer
 
-H =	
+H =		Serializer Data
 
 SRC_SUFF = $(addsuffix .cpp, $(SRC))
 HEADER_SUFF = $(addsuffix .hpp, $(SRC))
