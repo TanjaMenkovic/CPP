@@ -7,6 +7,8 @@
 #include <stdexcept> // std::invalid_argument and std::out_of_range
 #include <cctype> // std::isprint()
 #include <cmath> // std::isnan() and std::isinf()
+#include <sstream>   // For std::stringstream
+#include <iomanip>   // For std::setprecision
 
 class ScalarConverter {
 private:
@@ -18,6 +20,8 @@ private:
 
     bool isSpecialCase() const;
     void handleSpecialCase() const;
+    // void removeFloatSuffix();
+    // void isHavingF() 
 
     void printChar() const;
     void printInt() const;
@@ -40,9 +44,9 @@ private:
     void convert();
 
     // Exceptions
-    class ConversionException : public std::exception {
-        const char* what() const throw() {
-            return "Conversion error!";
-        }
+    class ConversionException : public std::exception 
+    {
+        public:
+                virtual const char* what() const throw();
     };
 };
