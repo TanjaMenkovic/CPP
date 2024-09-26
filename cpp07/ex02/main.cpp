@@ -2,26 +2,33 @@
 
 int main() 
 {
-	Array<int> arr(40);
-	Array<int> empty;
+	// Create an Array of integers with 5 elements
+    Array<int> arr(5);
 
-	arr[0] = 42;
-	arr[1] = 42;
+    // Initialize the array with values
+    for (unsigned int i = 0; i < arr.size(); ++i) {
+        arr[i] = (i + 1) * 10; // Assign values: 10, 20, 30, 40, 50
+    }
 
-	try{
-		arr[80] = 69;
-	}
-	catch(std::exception& e){
-		std::cout << "too high bounds exception caught" << std::endl;
-	}
+    // Print the values of the array
+    std::cout << "Original array values: ";
+    for (unsigned int i = 0; i < arr.size(); ++i) {
+        std::cout << arr[i] << " ";
+    }
+    std::cout << std::endl;
 
-	try{
-		empty[-1] = 69;
-	}
-	catch(std::exception& e){
-		std::cout << "too low bounds exception caught" << std::endl;
-	}
+    // Attempt to access an out-of-bounds index
+    try 
+    {
+        std::cout << arr[10] << std::endl; // This should throw a bounds exception
+    }
+    catch (std::exception& e) 
+    {
+        std::cout << "Caught exception: " << e.what() << std::endl;
+    }
+
+    // Print size
+    std::cout << "Size of original array: " << arr.size() << std::endl;
     
-	std::cout << "size of empty: " << empty.size() << std::endl;
-	std::cout << "size of arr: " << arr.size() << std::endl;
+    return 0;
 }
