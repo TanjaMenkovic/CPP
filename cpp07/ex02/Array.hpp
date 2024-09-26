@@ -29,7 +29,7 @@ class Array
 		{
             if (arr != NULL)
                 delete[] arr;
-            if (src.sizeA != NULL)
+            if (src.sizeA != 0)
             {
 			    sizeA = src.sizeA;
 			    arr  = new T[sizeA];
