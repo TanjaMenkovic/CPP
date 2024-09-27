@@ -4,6 +4,7 @@
 #include <iterator>
 #include <iostream>
 #include <exception>
+#include <vector>
 
 class NotFoundException: public std::exception
 {
