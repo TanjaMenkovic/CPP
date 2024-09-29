@@ -19,6 +19,12 @@ Base * generate(void)
 		return (NULL);
     }
 }
+
+/*
+Pointer casting (dynamic_cast<A*>(p)): When you use dynamic_cast with pointers, 
+if the cast fails, it simply returns nullptr. This is safe and doesn't throw an 
+exception, allowing you to easily check the result
+*/
 void identify(Base* p)
 {
     if (dynamic_cast<A*>(p))
@@ -30,6 +36,13 @@ void identify(Base* p)
 	else
 		std::cout << "Error: unknown type!" << std::endl;
 }
+
+/*
+Reference casting (dynamic_cast<A&>(p)): When using dynamic_cast with references, 
+if the cast fails, it throws a std::bad_cast exception. This is because references 
+must refer to a valid object of the correct type, and there is no "null reference" 
+like there is with pointers.
+*/
 void identify(Base& p)
 {
     try
