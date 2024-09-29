@@ -6,7 +6,7 @@ SRC =	main.cpp
 H =		easyfind.hpp
 OBJS = $(SRC:.cpp=.o)
 
-.PHONY: all $(NAME) clean fclean re
+.PHONY: all clean fclean re
 
 all: $(NAME)
 

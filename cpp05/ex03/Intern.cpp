@@ -35,19 +35,20 @@ AForm	*Intern::makeForm(std::string name, std::string target)
 	AForm				*createdForm = NULL;
 	const std::string	formsNames[] = {"shrubbery creation", "robotomy request", "presidential pardon"};
 	AForm	*(*formsFun[])(std::string target) = {&createShrubbery, &createRobotomy, &createPresident};
+	size_t	size = sizeof(formsNames) / sizeof(formsNames[0]);
 
-	std::transform(name.begin(), name.end(), name.begin(), ::tolower); // name to lower
-	for (size_t cur = 0; cur < (sizeof(formsNames) / sizeof(formsNames[0])); cur++)
+	for (size_t cur = 0; cur < size; cur++)
 	{
 		if (name == formsNames[cur])
 		{
 			createdForm = formsFun[cur](target);
-			break;
+			break ;
 		}
 	}
 	if (!createdForm)
-		std::cout << "There is no form with the name \"" << name << "\", but I can do the following forms : \"shrubbery creation\", \"robotomy creation\", \"presidential pardon\"." << std::endl; 
-	return createdForm;
+		std::cout << "Form with the name \"" << name << "\" doesn't exists, but I can create the following forms : \"shrubbery creation\", \"robotomy creation\", \"presidential pardon\"." << std::endl; 
+	
+	return createdForm ;
 }
 
 

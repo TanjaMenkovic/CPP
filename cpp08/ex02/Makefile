@@ -6,7 +6,7 @@ SRC =	main.cpp
 H =		MutantStack.hpp
 OBJS = $(SRC:.cpp=.o)
 
-.PHONY: all $(NAME) clean fclean re
+.PHONY: all clean fclean re
 
 all: $(NAME)
 

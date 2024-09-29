@@ -69,6 +69,7 @@ int main(void)
 	}
 	catch (std::exception &e)
 	{
+        delete b;
 		std::cerr << e.what() << std::endl << std::endl;
         return 1;
 	}
@@ -137,8 +138,6 @@ int main(void)
 
     std::cout << "\n\n2. Check form:\n\n";
 
-    // Form    f(nameF, gradeSign, gradeExec);
-
     // try to create a Form object
     try
     {
@@ -157,7 +156,10 @@ int main(void)
     }
     catch(const std::exception& e)
     {
+        delete f;
+        delete b;
         std::cerr << e.what() << std::endl << std::endl;
+        return 1;
     }
 
     std::cout << "\n---------------------------------------\n\n";

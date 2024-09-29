@@ -4,7 +4,8 @@
 #include "PresidentialPardonForm.hpp"
 
 int main() {
-    try {
+    try 
+    {
         // Create a bureaucrat with high enough grade to execute forms
         Bureaucrat Sahra("Sahra", 1);
 
@@ -42,7 +43,9 @@ int main() {
         // If execution reaches here, that means something went wrong
         Emmi.executeForm(anotherShrubberyForm);  // This should also throw an exception
 
-    } catch (const std::exception &e) {
+    } 
+    catch (const std::exception &e) 
+    {
         std::cerr << "Exception: " << e.what() << std::endl;
     }
 

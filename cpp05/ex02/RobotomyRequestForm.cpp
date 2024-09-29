@@ -27,7 +27,7 @@ void	RobotomyRequestForm::beExecuted(const Bureaucrat &bureaucrat) const
     number generator with the current time to ensure different results for each 
     run.
     */
-	std::srand(std::time(0));
+	std::srand(time(0));
 
     /*
     rand() % 2 generates a number between 0 and 1. This is equivalent to a 50% 

@@ -5,7 +5,8 @@
 #include "PresidentialPardonForm.hpp"
 
 int main() {
-    try {
+    try 
+    {
         // Create an intern
         Intern someRandomIntern;
 
@@ -17,26 +18,41 @@ int main() {
 
         // Intern creates a ShrubberyCreationForm
         AForm* shrubberyForm = someRandomIntern.makeForm("shrubbery creation", "home");
-        if (shrubberyForm) {
+        if (shrubberyForm) 
+        {
             highLevelBureaucrat.signForm(*shrubberyForm);
             highLevelBureaucrat.executeForm(*shrubberyForm);
             delete shrubberyForm;  // Don't forget to clean up!
         }
+        else
+        {
+            std::cout << "The intern could not create the requested form!" << std::endl;
+        }
 
         // Intern creates a RobotomyRequestForm
         AForm* robotomyForm = someRandomIntern.makeForm("robotomy request", "target1");
-        if (robotomyForm) {
+        if (robotomyForm) 
+        {
             highLevelBureaucrat.signForm(*robotomyForm);
             highLevelBureaucrat.executeForm(*robotomyForm);
             delete robotomyForm;  // Clean up
         }
+        else
+        {
+            std::cout << "The intern could not create the requested form!" << std::endl;
+        }
 
         // Intern creates a PresidentialPardonForm
         AForm* pardonForm = someRandomIntern.makeForm("presidential pardon", "Simos");
-        if (pardonForm) {
+        if (pardonForm) 
+        {
             highLevelBureaucrat.signForm(*pardonForm);
             highLevelBureaucrat.executeForm(*pardonForm);
             delete pardonForm;  // Clean up
+        }
+        else
+        {
+            std::cout << "The intern could not create the requested form!" << std::endl;
         }
 
         std::cout << "\n---------------------------------------\n";
@@ -44,11 +60,13 @@ int main() {
         // Test with an invalid form type
         std::cout << "\nTrying to create an invalid form:\n\n";
         AForm* invalidForm = someRandomIntern.makeForm("invalid form", "random target");
-        if (!invalidForm) {
+        if (!invalidForm) 
+        {
             std::cout << "The intern could not create the requested form!" << std::endl;
         }
-
-    } catch (const std::exception &e) {
+    } 
+    catch (const std::exception &e) 
+    {
         std::cerr << "Exception: " << e.what() << std::endl;
     }
 
