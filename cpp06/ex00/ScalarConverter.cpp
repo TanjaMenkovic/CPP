@@ -21,19 +21,6 @@ ScalarConverter &ScalarConverter::operator=(const ScalarConverter &src)
     return *this;
 }
 
-// Check if the input is a special case (nan, inf)
-bool ScalarConverter::isSpecialCase() const 
-{
-    if (_input == "nan" || _input == "nanf" ||
-        _input == "+inf" || _input == "-inf" ||
-        _input == "+inff" || _input == "-inff") 
-    {
-        handleSpecialCase();
-        return true;
-    }
-    return false;
-}
-
 // Handle special cases (nan, inf)
 void ScalarConverter::handleSpecialCase() const 
 {
@@ -49,6 +36,19 @@ void ScalarConverter::handleSpecialCase() const
     {
         std::cout << "char: impossible\nint: impossible\nfloat: -inff\ndouble: -inf\n";
     }
+}
+
+// Check if the input is a special case (nan, inf)
+bool ScalarConverter::isSpecialCase() const 
+{
+    if (_input == "nan" || _input == "nanf" ||
+        _input == "+inf" || _input == "-inf" ||
+        _input == "+inff" || _input == "-inff") 
+    {
+        handleSpecialCase();
+        return true;
+    }
+    return false;
 }
 
 // Print char conversion
