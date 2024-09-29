@@ -30,9 +30,9 @@ private:
 
     public:
     // Constructors
-    ScalarConverter();                              // Default constructor
-    ScalarConverter(const std::string &input);      // Parameterized constructor
-    ScalarConverter(const ScalarConverter &src);    // Copy constructor
+    ScalarConverter();                              
+    ScalarConverter(const std::string &input);      
+    ScalarConverter(const ScalarConverter &src);    
 
     // Destructor
     ~ScalarConverter();
