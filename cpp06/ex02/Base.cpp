@@ -7,11 +7,12 @@ Base::~Base(){}
 
 Base * generate(void)
 {
-    if (rand() % 3 == 0)
+	int r = rand() % 3;
+    if (r == 0)
 		return (new A());
-	else if (rand() % 3 == 1)
+	else if (r == 1)
 		return (new B());
-	else if (rand() % 3 == 2)
+	else if (r == 2)
 		return (new C());
 	else
     {
