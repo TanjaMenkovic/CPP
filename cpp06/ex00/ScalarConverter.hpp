@@ -20,30 +20,22 @@ private:
 
     bool isSpecialCase() const;
     void handleSpecialCase() const;
-    // void removeFloatSuffix();
-    // void isHavingF() 
 
     void printChar() const;
     void printInt() const;
     void printFloat() const;
     void printDouble() const;
 
-    public:
-    // Constructors
+public:
     ScalarConverter();                              
     ScalarConverter(const std::string &input);      
     ScalarConverter(const ScalarConverter &src);    
-
-    // Destructor
     ~ScalarConverter();
 
-    // Overloaded Assignment Operator
     ScalarConverter &operator=(const ScalarConverter &src);
 
-    // Public method to initiate conversion
     void convert();
 
-    // Exceptions
     class ConversionException : public std::exception 
     {
         public:

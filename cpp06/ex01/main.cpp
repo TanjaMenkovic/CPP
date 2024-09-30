@@ -11,6 +11,7 @@ int main(void)
     data->phoneNumber = "no phone";
     data->weight = 3.8;
     data->height = 20.0;
+	data->next = nullptr;
 
 	uintptr_t raw = Serializer::serialize(data);
 	Data *serialized = Serializer::deserialize(raw);

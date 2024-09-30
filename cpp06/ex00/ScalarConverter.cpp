@@ -85,6 +85,22 @@ void ScalarConverter::printInt() const {
 // Print float conversion
 void ScalarConverter::printFloat() const 
 {
+    /*
+    std::cout << std::fixed << std::showpoint;
+    modifies the behavior of std::cout (the standard output stream) when printing 
+    floating-point numbers. 
+
+    std::fixed:
+    sets the floating-point output to fixed-point notation. Without this, floating-point 
+    numbers might be displayed in scientific notation (e.g., 1.23e+4).
+    When std::fixed is used, the output will show the number as a fixed decimal, regardless 
+    of the magnitude of the value.
+
+    std::showpoint:
+    This ensures that the decimal point is always shown, even if there are no fractional digits.
+    For example, without std::showpoint, printing the number 1.0 might result in just 1. 
+    With std::showpoint, it will be printed as 1.0.
+    */
     std::cout << std::fixed << std::showpoint;
 
     if (std::isnan(_value)) 
