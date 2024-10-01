@@ -77,5 +77,6 @@ void Span::printSpan()
 {
     for(unsigned int i = 0; i < this->storage.size(); i++)
 		std::cout << this->storage[i] << " ";
+	
 	std::cout << std::endl;
 }

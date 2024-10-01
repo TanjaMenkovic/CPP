@@ -2,6 +2,8 @@
 
 int main() {
     // Testing with integers
+
+    std::cout << "\n\nTesting integers:\n\n";
     int x = 10, y = 20;
     std::cout << "Original x: " << x << ", y: " << y << std::endl;
     ::swap(x, y);
@@ -10,6 +12,8 @@ int main() {
     std::cout << "Max(x, y): " << ::max(x, y) << std::endl;
 
     // Testing with doubles
+
+    std::cout << "\n\nTesting doubles:\n\n";
     double a = 1.1, b = 2.2;
     std::cout << "\nOriginal a: " << a << ", b: " << b << std::endl;
     ::swap(a, b);
@@ -18,6 +22,8 @@ int main() {
     std::cout << "Max(a, b): " << ::max(a, b) << std::endl;
 
     // Testing with characters
+
+    std::cout << "\n\nTesting characters:\n\n";
     char c1 = 'A', c2 = 'B';
     std::cout << "\nOriginal c1: " << c1 << ", c2: " << c2 << std::endl;
     ::swap(c1, c2);
@@ -26,6 +32,8 @@ int main() {
     std::cout << "Max(c1, c2): " << ::max(c1, c2) << std::endl;
 
     // Testing with strings
+
+    std::cout << "\n\nTesting strings:\n\n";
     std::string s1 = "Hello", s2 = "World";
     std::cout << "\nOriginal s1: " << s1 << ", s2: " << s2 << std::endl;
     ::swap(s1, s2);

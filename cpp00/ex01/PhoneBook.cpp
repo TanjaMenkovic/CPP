@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PhoneBook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tmenkovi <tmenkovi@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: tmenkovi <tmenkovi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 13:20:09 by tmenkovi          #+#    #+#             */
-/*   Updated: 2024/05/28 13:20:11 by tmenkovi         ###   ########.fr       */
+/*   Updated: 2024/10/01 13:04:35 by tmenkovi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,7 @@
 /*
 default constructor
 */
-PhoneBook::~PhoneBook()
-{
-}
+PhoneBook::~PhoneBook() {}
 
 /*
 constructor

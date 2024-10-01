@@ -20,26 +20,33 @@ class Array
 
 		Array(const Array& src): sizeA(src.sizeA)
 		{
-			arr  = new T[sizeA];
-			arr = NULL;
-            *this = src;
+			arr = new T[sizeA];
+    		for (unsigned int i = 0; i < sizeA; i++)
+    		{
+        		arr[i] = src.arr[i];
+    		}
 		}
 
 		Array& operator=(const Array& src)
-		{
-            if (arr != NULL)
-                delete[] arr;
-            if (src.sizeA != 0)
-            {
-			    sizeA = src.sizeA;
-			    arr  = new T[sizeA];
-			    for (unsigned int i = 0; i < sizeA; i++)
-			    {
-				    arr[i] = src.arr[i];
-			    }
-            }
-			return *this;
+		{	
+    		if (this != &src) // Check for self-assignment
+    		{
+        		if (arr != NULL)
+            		delete[] arr;
+        
+        		if (src.sizeA != 0)
+        		{
+            		sizeA = src.sizeA;
+            		arr  = new T[sizeA];
+            		for (unsigned int i = 0; i < sizeA; i++)
+            		{
+            		    arr[i] = src.arr[i];
+            		}
+        		}
+    		}
+    		return *this;
 		}
+
 
 		~Array()
 		{
@@ -49,14 +56,14 @@ class Array
 
 		T& operator[](const unsigned int index)
 		{
-			if (index >= sizeA || index < 0)
-				throw BoundsException();
+    		if (index >= sizeA)
+        		throw BoundsException();
+    		if (arr == NULL)
+        		throw InvalidException();
 
-            if (arr == NULL)
-                throw InvalidException();
-
-			return arr[index];
+    		return arr[index];
 		}
+
 
 		unsigned int size() const
 		{

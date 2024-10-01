@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Contact.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tmenkovi <tmenkovi@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: tmenkovi <tmenkovi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 13:20:21 by tmenkovi          #+#    #+#             */
-/*   Updated: 2024/05/28 13:20:23 by tmenkovi         ###   ########.fr       */
+/*   Updated: 2024/10/01 13:03:46 by tmenkovi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,7 @@
 /*
 destructor
 */
-Contact::~Contact()
-{
-}
+Contact::~Contact() {}
 
 /*
 constructor

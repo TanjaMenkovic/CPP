@@ -11,8 +11,8 @@
 class Span
 {
     private:
-        unsigned int size;
-        std::vector<int> storage;
+        unsigned          int size;
+        std::vector<int>  storage;
         Span();
 
     public:

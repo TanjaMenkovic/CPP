@@ -9,9 +9,9 @@ template <class T>
 class MutantStack : public std::stack<T>
 {
     public:
-        typedef std::stack<T> stack;
-	    typedef typename stack::container_type container;
-	    typedef typename container::iterator iterator;
+        typedef std::stack<T>                   stack;
+	    typedef typename stack::container_type  container;
+	    typedef typename container::iterator    iterator;
 
         MutantStack(): stack() {}
 
@@ -20,7 +20,8 @@ class MutantStack : public std::stack<T>
         MutantStack& operator=(const MutantStack& src)
         {
             if (*this != src)
-                *this = src;
+                stack::operator=(src);
+
             return *this;
         }
 
