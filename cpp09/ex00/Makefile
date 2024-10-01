@@ -1,17 +1,17 @@
-NAME =
+NAME =  btc
 
 BUILD_FLAGS = -Wall -Wextra -std=c++11 -Werror
 
-SRC =	
+SRC =	BitcoinExchange
 
-H =	
+H =		 BitcoinExchange
 
 SRC_SUFF = $(addsuffix .cpp, $(SRC))
 HEADER_SUFF = $(addsuffix .hpp, $(SRC))
 
 SRCO = $(addsuffix .o, $(SRC))
 
-.PHONY: all $(NAME) clean fclean re
+.PHONY: all clean fclean re
 all: $(NAME)
 
 $(NAME): main.cpp $(SRC_SUFF) $(HEADER_SUFF)
