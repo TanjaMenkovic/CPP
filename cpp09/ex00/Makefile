@@ -4,7 +4,7 @@ BUILD_FLAGS = -Wall -Wextra -std=c++11 -Werror
 
 SRC =	BitcoinExchange
 
-H =		 BitcoinExchange
+H =		BitcoinExchange Date
 
 SRC_SUFF = $(addsuffix .cpp, $(SRC))
 HEADER_SUFF = $(addsuffix .hpp, $(SRC))
