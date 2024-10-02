@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   FragTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tmenkovi <tmenkovi@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: tmenkovi <tmenkovi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 16:06:55 by tmenkovi          #+#    #+#             */
-/*   Updated: 2024/06/06 16:06:57 by tmenkovi         ###   ########.fr       */
+/*   Updated: 2024/10/02 15:19:23 by tmenkovi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ class FragTrap: virtual public ClapTrap
 {
 	public:
 		FragTrap(void);
-		FragTrap(string name);
+		FragTrap(std::string name);
 		FragTrap(const FragTrap &to_copy);
 		FragTrap& operator=(const FragTrap &original);
 		~FragTrap(void);

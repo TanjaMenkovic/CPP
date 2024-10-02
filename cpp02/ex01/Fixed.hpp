@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tmenkovi <tmenkovi@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: tmenkovi <tmenkovi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 16:01:57 by tmenkovi          #+#    #+#             */
-/*   Updated: 2024/06/06 16:01:59 by tmenkovi         ###   ########.fr       */
+/*   Updated: 2024/10/02 11:26:46 by tmenkovi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,6 @@
 # define FIXED_HPP
 
 # include <iostream>
-
-using std::cout;
-using std::endl;
-using std::ostream;
 
 class Fixed {
 	private:
@@ -27,24 +23,24 @@ class Fixed {
 		static int customRound(float value); // Custom rounding function
 
 	public:
-		Fixed(void); // default constructor
+		Fixed(); // default constructor
 		
 		// parametrized constructors
 		Fixed(const int inInt);
 		Fixed(const float inFloat);
 
 		Fixed(const Fixed &to_copy); // copy constructor
-		~Fixed(void); //destructor
+		~Fixed(); //destructor
 
 		Fixed &operator=(const Fixed &original); // copy assignment operator overload
 
-		int	getRawBits(void) const;
+		int	getRawBits() const;
 		void	setRawBits(int const raw);
 
-		float	toFloat(void) const;
-		int	toInt(void) const;
+		float	toFloat() const;
+		int	toInt() const;
 };
 
-ostream &operator<<(ostream &stream, const Fixed &nbr);
+std::ostream &operator<<(std::ostream &stream, const Fixed &nbr);
 
 #endif

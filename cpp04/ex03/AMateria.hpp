@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   AMateria.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tmenkovi <tmenkovi@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: tmenkovi <tmenkovi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/18 17:43:40 by tmenkovi          #+#    #+#             */
-/*   Updated: 2024/06/18 17:43:42 by tmenkovi         ###   ########.fr       */
+/*   Updated: 2024/10/02 15:47:58 by tmenkovi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,28 +16,22 @@
 #include <iostream>
 #include <string>
 
-using std::string;
-using std::cout;
-using std::cin;
-using std::endl;
-using std::cerr;
-
 class ICharacter;
 
 class AMateria
 {
 	protected:
-		string	_type;
+		std::string	_type;
 
 	public:
 		AMateria(void);
-		AMateria(const string& type);
+		AMateria(const std::string& type);
 		AMateria(const AMateria& materia);
 
 		virtual ~AMateria(void);
 		AMateria& operator=(const AMateria& materia);
 
-		const string& getType(void) const;
+		const std::string& getType(void) const;
 
 		virtual AMateria* clone(void) const = 0;
 		virtual void use(ICharacter& target);

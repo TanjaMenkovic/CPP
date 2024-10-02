@@ -3,52 +3,49 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tmenkovi <tmenkovi@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: tmenkovi <tmenkovi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 16:08:05 by tmenkovi          #+#    #+#             */
-/*   Updated: 2024/06/06 16:08:15 by tmenkovi         ###   ########.fr       */
+/*   Updated: 2024/10/02 15:17:14 by tmenkovi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "FragTrap.hpp"
-
-using std::cout;
-using std::endl;
 
 int main(void)
 {
 	FragTrap Maslina("Maslina");
 	FragTrap Safa("Safa");
 
-	cout << endl;
+	std::cout << std::endl;
 
 	Maslina.attack("Safa");
 	Safa.takeDamage(25);
 
-	cout << endl;
+	std::cout << std::endl;
 
 	Maslina.attack("Safa");
 	Safa.takeDamage(32);
 
-	cout << endl;
+	std::cout << std::endl;
 
 	Maslina.attack("Safa");
 	Safa.takeDamage(20);
 
-	cout << endl;
+	std::cout << std::endl;
 
 	Safa.beRepaired(77);
 
-	cout << endl;
+	std::cout << std::endl;
 
 	Maslina.attack("Safa");
 	Safa.takeDamage(10);
 
-	cout << endl;
+	std::cout << std::endl;
 
 	Safa.highFivesGuys();
 
-	cout << endl;
+	std::cout << std::endl;
 
-	return EXIT_SUCCESS;
+	return 0;
 }

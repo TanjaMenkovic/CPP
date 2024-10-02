@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tmenkovi <tmenkovi@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: tmenkovi <tmenkovi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 16:02:28 by tmenkovi          #+#    #+#             */
-/*   Updated: 2024/06/06 16:02:29 by tmenkovi         ###   ########.fr       */
+/*   Updated: 2024/10/02 11:51:03 by tmenkovi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,17 +17,11 @@ int Fixed::customRound(float value)
     return (value >= 0) ? static_cast<int>(value + 0.5f) : static_cast<int>(value - 0.5f);
 }
 
-Fixed::Fixed(void) : _value(0) 
-{
-}
+Fixed::Fixed(void) : _value(0) {}
 
-Fixed::Fixed(const int inInt) : _value(inInt * (1 << Fixed::_bits)) 
-{
-}
+Fixed::Fixed(const int inInt) : _value(inInt * (1 << Fixed::_bits)) {}
 
-Fixed::Fixed(const float inFloat) : _value(customRound(inFloat * (1 << Fixed::_bits)) ) 
-{
-}
+Fixed::Fixed(const float inFloat) : _value(customRound(inFloat * (1 << Fixed::_bits)) ) {}
 
 Fixed::Fixed(const Fixed &to_copy) 
 {
@@ -40,9 +34,7 @@ Fixed &Fixed::operator=(const Fixed &original)
 	return *this;
 }
 
-Fixed::~Fixed(void) 
-{
-}
+Fixed::~Fixed(void) {}
 
 int Fixed::getRawBits(void) const
 {
@@ -64,7 +56,7 @@ int Fixed::toInt(void) const
 	return this->_value >> Fixed::_bits;
 }
 
-ostream &operator<<(ostream &stream, const Fixed &nbr)
+std::ostream &operator<<(std::ostream &stream, const Fixed &nbr)
 {
 	stream << nbr.toFloat();
 	return stream;

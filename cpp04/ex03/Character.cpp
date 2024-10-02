@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Character.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tmenkovi <tmenkovi@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: tmenkovi <tmenkovi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/18 17:43:48 by tmenkovi          #+#    #+#             */
-/*   Updated: 2024/06/18 17:43:49 by tmenkovi         ###   ########.fr       */
+/*   Updated: 2024/10/02 15:49:08 by tmenkovi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,21 @@
 
 Character::Character(void): _name("Unnamed"), _currIdx(0)
 {
-	cout << "Character has beed created." << endl;
+	std::cout << "Character has beed created." << std::endl;
 	for (int i = 0; i < N_SLOTS; i++)
 		this->_inventory[i] = NULL;
 }
 
-Character::Character(string name ): _name(name), _currIdx(0)
+Character::Character(std::string name ): _name(name), _currIdx(0)
 {
-	cout << "Character: Name constructor called" << endl;
+	std::cout << "Character: Name constructor called" << std::endl;
 	for (int i = 0; i < N_SLOTS; i++)
 		this->_inventory[i] = NULL;
 }
 
 Character::Character(const Character& character): _name(character._name), _currIdx(character._currIdx)
 {
-	cout << "Character: Copy constructor called" << endl;
+	std::cout << "Character: Copy constructor called" << std::endl;
 	for (int i = 0; i < N_SLOTS; i++)
 	{
 		this->_inventory[i] = NULL;
@@ -39,7 +39,7 @@ Character::Character(const Character& character): _name(character._name), _currI
 
 Character::~Character(void)
 {
-	cout << "Character has beed destroyed at address " << this << endl;
+	std::cout << "Character has beed destroyed at address " << this << std::endl;
 	for (int i = 0; i < N_SLOTS; i++)
 	{
 		if (this->_inventory[i] != NULL)
@@ -49,7 +49,7 @@ Character::~Character(void)
 
 Character&	Character::operator=(const Character& character)
 {
-	cout << "Character: Assignation operator called" << endl;
+	std::cout << "Character: Assignation operator called" << std::endl;
 	if (this != &character)
 	{
 		for (int i = 0; i < N_SLOTS; i++)
@@ -65,7 +65,7 @@ Character&	Character::operator=(const Character& character)
 	return (*this);
 }
 
-const string&	Character::getName(void) const
+const std::string&	Character::getName(void) const
 {
 	return ( this->_name );
 }
@@ -76,30 +76,30 @@ void	Character::equip(AMateria* m)
 
 	if (!m)
 	{
-		cout << this->_name << " tried to equip nothing and it did nothing" << endl;
+		std::cout << this->_name << " tried to equip nothing and it did nothing" << std::endl;
 		return ;
 	}
 	while ((this->_inventory)[i] != NULL && i < 4)
 		i++;
 	if (i >= 4)
 	{
-		cout << this->_name << " can't equip more than 4 Materia" << endl;
+		std::cout << this->_name << " can't equip more than 4 Materia" << std::endl;
 		return ;
 	}
 	(this->_inventory)[i] = m;
-	cout << this->_name << " equipped materia " << m->getType() << " in slot " << i << endl;
+	std::cout << this->_name << " equipped materia " << m->getType() << " in slot " << i << std::endl;
 }
 
 void	Character::unequip(int idx)
 {
 	if (idx < 0 || idx >= 4)
-		cout << this->_name << " tried to unequip nothing at slot " << idx << " and it did nothing" << endl;
+		std::cout << this->_name << " tried to unequip nothing at slot " << idx << " and it did nothing" << std::endl;
 	else if (!(this->_inventory)[idx])
-		cout << this->_name << " has nothing equipped at slot " << idx << " so he can't unequip it" << endl;
+		std::cout << this->_name << " has nothing equipped at slot " << idx << " so he can't unequip it" << std::endl;
 	else
 	{
 		AMateria *ptr = (this->_inventory)[idx];
-		cout << this->_name << " unequipped " << ptr->getType() << " at slot "<< idx << endl;
+		std::cout << this->_name << " unequipped " << ptr->getType() << " at slot "<< idx << std::endl;
 		(this->_inventory)[idx] = 0;
 	}
 }

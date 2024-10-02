@@ -3,16 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   Account.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tmenkovi <tmenkovi@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: tmenkovi <tmenkovi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 19:02:27 by tmenkovi          #+#    #+#             */
-/*   Updated: 2024/05/30 19:02:29 by tmenkovi         ###   ########.fr       */
+/*   Updated: 2024/10/02 10:58:29 by tmenkovi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Account.hpp"
 #include <sys/time.h>
 #include <iostream>
+#include <ctime>
 
 /*
 definition and initialization of the static variable
@@ -39,7 +40,7 @@ constructor
 */
 static int	get_index()
 {
-	static int	index;
+	static int	index = -1;
 	index++;
 	return (index);
 }
@@ -165,7 +166,7 @@ void Account::displayStatus(void) const
 
 void Account::_displayTimestamp(void)
 {
-	std::time_t now = std::time(nullptr);
+	std::time_t now = std::time(NULL);
 	std::tm *const local_now = std::localtime(&now);
 	std::cout << "[" << local_now->tm_year + 1900
 		<< (local_now->tm_mon < 10 ? "0" : "")

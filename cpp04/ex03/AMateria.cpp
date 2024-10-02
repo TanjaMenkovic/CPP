@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   AMateria.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tmenkovi <tmenkovi@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: tmenkovi <tmenkovi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/18 17:43:31 by tmenkovi          #+#    #+#             */
-/*   Updated: 2024/06/18 17:43:34 by tmenkovi         ###   ########.fr       */
+/*   Updated: 2024/10/02 15:47:45 by tmenkovi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,37 +14,37 @@
 
 AMateria::AMateria(void): _type("Unknown type")
 {
-	cout << "Abstract materia has beed created" << endl;
+	std::cout << "Abstract materia has beed created" << std::endl;
 }
 
-AMateria::AMateria(const string& type): _type(type)
+AMateria::AMateria(const std::string& type): _type(type)
 {
-	cout << "AMateria type constructor called" << endl;
+	std::cout << "AMateria type constructor called" << std::endl;
 }
 
 AMateria::AMateria(const AMateria& materia): _type(materia._type)
 {
-	cout << "AMateria copy constructor called" << endl;
+	std::cout << "AMateria copy constructor called" << std::endl;
 }
 
 AMateria::~AMateria(void)
 {
-	cout << "AMateria has beed destroyed at address " << this << endl;
+	std::cout << "AMateria has beed destroyed at address " << this << std::endl;
 }
 
 AMateria& AMateria::operator=(const AMateria& materia)
 {
-	cout << "AMateria assignation operator called" << endl;
+	std::cout << "AMateria assignation operator called" << std::endl;
 	this->_type = materia._type;
 	return (*this);
 }
 
 void AMateria::use(ICharacter& target)
 {
-	cout << "* AMateria abstractly used on " << target.getName() << " *" ;
+	std::cout << "* AMateria abstractly used on " << target.getName() << " *" ;
 }
 
-const string& AMateria::getType(void) const
+const std::string& AMateria::getType(void) const
 {
 	return (this->_type);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tmenkovi <tmenkovi@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: tmenkovi <tmenkovi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 16:03:02 by tmenkovi          #+#    #+#             */
-/*   Updated: 2024/06/06 16:03:04 by tmenkovi         ###   ########.fr       */
+/*   Updated: 2024/10/02 11:52:29 by tmenkovi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ int Fixed::toInt(void) const
 	return this->_value >> Fixed::_bits;
 }
 
-ostream &operator<<(ostream &stream, const Fixed &nbr)
+std::ostream &operator<<(std::ostream &stream, const Fixed &nbr)
 {
 	stream << nbr.toFloat();
 	return stream;

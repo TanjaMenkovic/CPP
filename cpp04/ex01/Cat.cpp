@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Cat.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tmenkovi <tmenkovi@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: tmenkovi <tmenkovi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 17:10:26 by tmenkovi          #+#    #+#             */
-/*   Updated: 2024/06/17 17:10:27 by tmenkovi         ###   ########.fr       */
+/*   Updated: 2024/10/02 15:34:48 by tmenkovi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 Cat::Cat(): Animal()
 {
 	this->_type = "Cat";
-	cout << "Cat is created" << endl;
+	std::cout << "Cat is created" << std::endl;
 	this->_brain = new Brain();
 	if (this->_brain == NULL)
 	{
@@ -27,19 +27,19 @@ Cat::Cat(): Animal()
 
 Cat::Cat(const Cat &copy): Animal()
 {
-	cout << "Cat Copy Constructor called" << endl;
+	std::cout << "Cat Copy Constructor called" << std::endl;
 	*this = copy;
 }
 
 Cat::~Cat()
 {
 	delete(this->_brain);
-	cout << "Cat is destroyed!" << endl;
+	std::cout << "Cat is destroyed!" << std::endl;
 }
 
 Cat &Cat::operator=(const Cat &src)
 {
-	cout << "Cat Assignation operator called" << endl;
+	std::cout << "Cat Assignation operator called" << std::endl;
 	if (this == &src)
 		return *this;
 
@@ -57,16 +57,16 @@ Cat &Cat::operator=(const Cat &src)
 
 void	Cat::makeSound(void)const
 {
-	cout << this->getType() << " says: MEEEEEEEOOOOOWWWWW!!!" << endl;
+	std::cout << this->getType() << " says: MEEEEEEEOOOOOWWWWW!!!" << std::endl;
 }
 
 void	Cat::getIdeas(void)const
 {
 	for (int i = 0; i < 5; i++) // change number to 100 if you want to see all 100 ideas
-		cout << i << ". Cat's idea is: \"" << this->_brain->getIdea(i) << "\" at the address " << this->_brain->getIdeaAddress(i) << endl;
+		std::cout << i << ". Cat's idea is: \"" << this->_brain->getIdea(i) << "\" at the address " << this->_brain->getIdeaAddress(i) << std::endl;
 }
 
-void	Cat::setIdea(size_t i, string idea)
+void	Cat::setIdea(size_t i, std::string idea)
 {
 		this->_brain->setIdea(i, idea);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Harl.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tmenkovi <tmenkovi@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: tmenkovi <tmenkovi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 10:51:58 by tmenkovi          #+#    #+#             */
-/*   Updated: 2024/06/03 10:52:02 by tmenkovi         ###   ########.fr       */
+/*   Updated: 2024/10/02 11:19:29 by tmenkovi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,23 +17,17 @@
 # include <iomanip>
 # include <string>
 
-using std::string;
-using std::cout;
-using std::cin;
-using std::endl;
-using std::cerr;
-
 class Harl {
 	private:
-        void debug(void);
-        void info(void);
-        void warning(void);
-        void error(void);
+                void debug();
+                void info();
+                void warning();
+                void error();
 
 	public:
-		void complain(string level);
+		void complain(std::string level);
 };
 
-int  getLevel(string level);
+int  getLevel(std::string level);
 
 #endif

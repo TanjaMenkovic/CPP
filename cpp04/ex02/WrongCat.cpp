@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   WrongCat.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tmenkovi <tmenkovi@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: tmenkovi <tmenkovi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 17:11:15 by tmenkovi          #+#    #+#             */
-/*   Updated: 2024/06/17 17:11:16 by tmenkovi         ###   ########.fr       */
+/*   Updated: 2024/10/02 15:45:47 by tmenkovi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,23 +15,23 @@
 WrongCat::WrongCat(): WrongAnimal()
 {
 	this->_type = "WrongCat";
-	cout << "WrongCat is created" << endl;
+	std::cout << "WrongCat is created" << std::endl;
 }
 
 WrongCat::WrongCat(const WrongCat &copy): WrongAnimal()
 {
-	cout << "WrongCat Copy Constructor called" << endl;
+	std::cout << "WrongCat Copy Constructor called" << std::endl;
 	*this = copy;
 }
 
 WrongCat::~WrongCat()
 {
-	cout << "WrongCat is destroyed!" << endl;
+	std::cout << "WrongCat is destroyed!" << std::endl;
 }
 
 WrongCat &WrongCat::operator=(const WrongCat &src)
 {
-	cout << "Cat Assignation operator called" << endl;
+	std::cout << "Cat Assignation operator called" << std::endl;
 	if (this == &src)
 		return *this;
 
@@ -41,5 +41,5 @@ WrongCat &WrongCat::operator=(const WrongCat &src)
 
 void	WrongCat::makeSound(void)const
 {
-	cout << this->getType() << " says: HEEEELLL YEEEAAAH!!!" << endl;
+	std::cout << this->getType() << " says: HEEEELLL YEEEAAAH!!!" << std::endl;
 }

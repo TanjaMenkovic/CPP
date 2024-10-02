@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tmenkovi <tmenkovi@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: tmenkovi <tmenkovi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 14:38:28 by tmenkovi          #+#    #+#             */
-/*   Updated: 2024/06/03 14:38:29 by tmenkovi         ###   ########.fr       */
+/*   Updated: 2024/10/02 11:23:12 by tmenkovi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,22 +15,19 @@
 
 # include <iostream>
 
-using std::cout;
-using std::endl;
-
 class Fixed {
 	private:
 		int					_value;
 		static const int	_bits = 8;
 
 	public:
-		Fixed(void); // default constructor
+		Fixed(); // default constructor
 		Fixed(const Fixed &to_copy); // copy constructor
-		~Fixed(void); //destructor
+		~Fixed(); //destructor
 
 		Fixed &operator=(const Fixed &original); // copy assignment operator overload
 
-		int	getRawBits(void) const;
+		int	getRawBits() const;
 		void	setRawBits(int const raw);
 };
 

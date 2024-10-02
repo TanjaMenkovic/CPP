@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tmenkovi <tmenkovi@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: tmenkovi <tmenkovi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 17:11:37 by tmenkovi          #+#    #+#             */
-/*   Updated: 2024/06/17 17:11:40 by tmenkovi         ###   ########.fr       */
+/*   Updated: 2024/10/02 15:40:47 by tmenkovi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@
 
 int main()
 {
-	cout << endl;
-	cout << "\033[34m[Constructing]\n\033[0m" << endl;
+	std::cout << std::endl;
+	std::cout << "\033[34m[Constructing]\n\033[0m" << std::endl;
 	const Animal	*meta[10];
 	for (int i = 0; i < 10; i++)
 	{
@@ -30,7 +30,7 @@ int main()
 			if (meta[i] == NULL)
 			{
 				perror("Cat couldn't be allocated!");
-				cerr << "Exiting process now";
+				std::cerr << "Exiting process now";
 				exit(1);
 			}
 		}
@@ -40,39 +40,39 @@ int main()
 			if (meta[i] == NULL)
 			{
 				perror("Dog couldn't be allocated!");
-				cerr << "Exiting process now";
+				std::cerr << "Exiting process now";
 				exit(1);
 			}
 		}
-		cout << endl;
+		std::cout << std::endl;
 	}
-	cout << endl;
+	std::cout << std::endl;
 
-	cout << "\033[34m[Testing]\n\033[0m" << endl;
+	std::cout << "\033[34m[Testing]\n\033[0m" << std::endl;
 	for (int i = 0; i < 10; i++)
 	{
-		cout << endl;
-		cout << "Animal _type: " << meta[i]->getType() << endl;
+		std::cout << std::endl;
+		std::cout << "Animal _type: " << meta[i]->getType() << std::endl;
 		meta[i]->makeSound();
-		cout << endl;
+		std::cout << std::endl;
 	}
-	cout << endl;
+	std::cout << std::endl;
 
-	cout << "\033[34m[Deconstructing]\n\033[0m" << endl;
+	std::cout << "\033[34m[Deconstructing]\n\033[0m" << std::endl;
 	for (int i = 0; i < 10; i++)
 		delete(meta[i]);
 
-	cout << endl << endl;
-	cout << "\033[38;5;213m[showing that the copy constructor creates a deep copy]" << std::endl;
-	cout << endl;
+	std::cout << std::endl << std::endl;
+	std::cout << "\033[38;5;213m[showing that the copy constructor creates a deep copy]" << std::endl;
+	std::cout << std::endl;
 
-	cout << "\033[34m[Constructing]\n\033[0m" << endl;
+	std::cout << "\033[34m[Constructing]\n\033[0m" << std::endl;
 	Dog *a = new Dog();
 	// Cat *a = new Cat();
 	if (a == NULL)
 	{
 		perror("Allocation failed");
-		cerr << "Exiting the process now." << endl;
+		std::cerr << "Exiting the process now." << std::endl;
 		exit(1);
 	}
 
@@ -81,35 +81,35 @@ int main()
 	a->setIdea(2, "Let's go out! Let's go out!!!");
 	a->setIdea(3, "Wake up now!");
 	a->setIdea(4, "LEt's play! Let's play!!!");
-	cout << "\nIncorrect input: " << endl;
+	std::cout << "\nIncorrect input: " << std::endl;
 	a->setIdea(200, "no idea");
-	cout << endl;
+	std::cout << std::endl;
 
 	Dog *b = new Dog(*a);
 	// Cat *b = new Cat(*a);
 	if (b == NULL)
 	{
 		perror("Allocation failed");
-		cerr << "Exiting the process now." << endl;
+		std::cerr << "Exiting the process now." << std::endl;
 		exit(1);
 	}
-	cout << endl;
+	std::cout << std::endl;
 
-	cout << "\033[34m[Testing a]\n\033[0m" << endl;
-	cout << "The " << a->getType() << " a has the following ideas: " << endl;
+	std::cout << "\033[34m[Testing a]\n\033[0m" << std::endl;
+	std::cout << "The " << a->getType() << " a has the following ideas: " << std::endl;
 	a->getIdeas();
-	cout << endl;
+	std::cout << std::endl;
 
-	cout << "\033[34m[Deconstructing a]\n\033[0m" << endl;
+	std::cout << "\033[34m[Deconstructing a]\n\033[0m" << std::endl;
 	delete(a);
-	cout << endl;
+	std::cout << std::endl;
 
-	cout << "\033[34m[Testing b]\n\033[0m" << endl;
-	cout << "The " << b->getType() << " b has the following ideas: " << endl;
+	std::cout << "\033[34m[Testing b]\n\033[0m" << std::endl;
+	std::cout << "The " << b->getType() << " b has the following ideas: " << std::endl;
 	b->getIdeas();
-	cout << endl;
+	std::cout << std::endl;
 
-	cout << "\033[34m[Deconstructing b]\n\033[0m" << endl;
+	std::cout << "\033[34m[Deconstructing b]\n\033[0m" << std::endl;
 	delete(b);
 
 	return (0);

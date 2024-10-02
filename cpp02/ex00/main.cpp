@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tmenkovi <tmenkovi@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: tmenkovi <tmenkovi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 14:38:04 by tmenkovi          #+#    #+#             */
-/*   Updated: 2024/06/03 14:38:06 by tmenkovi         ###   ########.fr       */
+/*   Updated: 2024/10/02 11:23:30 by tmenkovi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ int main(void)
 
 	c = b; // copy assignment operator overload
 
-	cout << a.getRawBits() << endl;
-	cout << b.getRawBits() << endl;
-	cout << c.getRawBits() << endl;
+	std::cout << a.getRawBits() << std::endl;
+	std::cout << b.getRawBits() << std::endl;
+	std::cout << c.getRawBits() << std::endl;
 
 	return 1;
 }

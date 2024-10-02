@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Ice.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tmenkovi <tmenkovi@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: tmenkovi <tmenkovi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/18 17:44:43 by tmenkovi          #+#    #+#             */
-/*   Updated: 2024/06/18 17:44:44 by tmenkovi         ###   ########.fr       */
+/*   Updated: 2024/10/02 15:50:27 by tmenkovi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,23 @@
 
 Ice::Ice(void): AMateria("ice")
 {
-	cout << "Ice has beed created" << endl;
+	std::cout << "Ice has beed created" << std::endl;
 }
 
 Ice::Ice(const Ice& ice): AMateria("ice")
 {
-	cout << "Ice: Copy constructor called" << endl;
+	std::cout << "Ice: Copy constructor called" << std::endl;
 	this->_type = ice._type;
 }
 
 Ice::~Ice(void)
 {
-	cout << "Ice has beed destroyed at address " << this << endl;
+	std::cout << "Ice has beed destroyed at address " << this << std::endl;
 }
 
 Ice& Ice::operator=(const Ice& ice)
 {
-	cout << "Ice: Assignation operator called" << endl;
+	std::cout << "Ice: Assignation operator called" << std::endl;
 	this->_type = ice._type;
 	return (*this);
 }
@@ -42,5 +42,5 @@ AMateria* Ice::clone(void) const
 
 void	Ice::use(ICharacter& target)
 {
-	cout << "* shoots an ice bolt at " << target.getName() << " *" << endl;
+	std::cout << "* shoots an ice bolt at " << target.getName() << " *" << std::endl;
 }

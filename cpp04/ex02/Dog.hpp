@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tmenkovi <tmenkovi@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: tmenkovi <tmenkovi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 17:10:47 by tmenkovi          #+#    #+#             */
-/*   Updated: 2024/06/17 17:10:49 by tmenkovi         ###   ########.fr       */
+/*   Updated: 2024/10/02 15:44:18 by tmenkovi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,5 @@ class Dog: public Animal
 		virtual void makeSound(void) const;
 
 		void getIdeas(void) const;
-		void setIdea(size_t i, string idea);
+		void setIdea(size_t i, std::string idea);
 };

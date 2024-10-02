@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Cure.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tmenkovi <tmenkovi@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: tmenkovi <tmenkovi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/18 17:44:05 by tmenkovi          #+#    #+#             */
-/*   Updated: 2024/06/18 17:44:06 by tmenkovi         ###   ########.fr       */
+/*   Updated: 2024/10/02 15:50:04 by tmenkovi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,23 @@
 
 Cure::Cure(void): AMateria("cure")
 {
-	cout << "Cure has beed created" << endl;
+	std::cout << "Cure has beed created" << std::endl;
 }
 
 Cure::Cure(const Cure& cure): AMateria("cure")
 {
-	cout << "Cure: Copy constructor called" << endl;
+	std::cout << "Cure: Copy constructor called" << std::endl;
 	this->_type = cure._type;
 }
 
 Cure::~Cure(void)
 {
-	cout << "Cure has beed destroyed at address " << this << endl;
+	std::cout << "Cure has beed destroyed at address " << this << std::endl;
 }
 
 Cure& Cure::operator=(const Cure& cure)
 {
-	cout << "Cure: Assignation operator called" << endl;
+	std::cout << "Cure: Assignation operator called" << std::endl;
 	this->_type = cure._type;
 	return (*this);
 }
@@ -42,5 +42,5 @@ AMateria* Cure::clone(void) const
 
 void Cure::use(ICharacter& target)
 {
-	cout << "* heals " << target.getName() << "'s wounds *" << endl;
+	std::cout << "* heals " << target.getName() << "'s wounds *" << std::endl;
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Zombie.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tmenkovi <tmenkovi@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: tmenkovi <tmenkovi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 08:40:45 by tmenkovi          #+#    #+#             */
-/*   Updated: 2024/06/03 08:40:47 by tmenkovi         ###   ########.fr       */
+/*   Updated: 2024/10/02 10:59:08 by tmenkovi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,7 @@
 /*
 constructor
 */
-Zombie::Zombie(std::string name) : _name(name)
-{
-}
+Zombie::Zombie(std::string name) : _name(name) {}
 
 /*
 destructor

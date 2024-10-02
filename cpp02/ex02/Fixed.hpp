@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tmenkovi <tmenkovi@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: tmenkovi <tmenkovi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 16:02:36 by tmenkovi          #+#    #+#             */
-/*   Updated: 2024/06/06 16:02:38 by tmenkovi         ###   ########.fr       */
+/*   Updated: 2024/10/02 11:28:35 by tmenkovi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,8 @@
 
 # include <iostream>
 
-using std::cout;
-using std::endl;
-using std::ostream;
-
-class Fixed {
+class Fixed 
+{
 	private:
 		int					_value;
 		static const int	_bits = 8;
@@ -38,21 +35,21 @@ class Fixed {
 
 		Fixed &operator=(const Fixed &original); // copy assignment operator overload
 
-		int	getRawBits(void) const;
+		int	getRawBits() const;
 		void	setRawBits(int const raw);
 
-		float	toFloat(void) const;
-		int	toInt(void) const;
+		float	toFloat() const;
+		int	toInt() const;
 
 		bool operator>(const Fixed &nbr);
-        	bool operator<(const Fixed &nbr);
-        	bool operator<=(const Fixed &nbr);
-       		bool operator>=(const Fixed &nbr);
-        	bool operator==(const Fixed &nbr);
-        	bool operator!=(const Fixed &nbr);
-        	Fixed operator+(const Fixed &nbr);
-        	Fixed operator-(const Fixed &nbr);
-        	Fixed operator*(const Fixed &nbr);
+        bool operator<(const Fixed &nbr);
+        bool operator<=(const Fixed &nbr);
+       	bool operator>=(const Fixed &nbr);
+        bool operator==(const Fixed &nbr);
+        bool operator!=(const Fixed &nbr);
+        Fixed operator+(const Fixed &nbr);
+        Fixed operator-(const Fixed &nbr);
+        Fixed operator*(const Fixed &nbr);
 		Fixed operator/(const Fixed &nbr);
 		Fixed &operator++(void);
 		Fixed operator++(int);
@@ -65,6 +62,6 @@ class Fixed {
 		static const Fixed& max(const Fixed &a, const Fixed &b);
 };
 
-ostream &operator<<(ostream &stream, const Fixed &nbr);
+std::ostream &operator<<(std::ostream &stream, const Fixed &nbr);
 
 #endif

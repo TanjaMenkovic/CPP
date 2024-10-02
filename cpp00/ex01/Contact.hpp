@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Contact.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tmenkovi <tmenkovi@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: tmenkovi <tmenkovi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 13:40:31 by tmenkovi          #+#    #+#             */
-/*   Updated: 2024/05/28 13:40:33 by tmenkovi         ###   ########.fr       */
+/*   Updated: 2024/10/02 10:51:58 by tmenkovi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 # include <string>
 # include <iostream>
 # include <iomanip> //std::setw
+# include <cstdlib> //exit()
+# include <limits>  // For std::numeric_limits
 
 class Contact {
 	private:

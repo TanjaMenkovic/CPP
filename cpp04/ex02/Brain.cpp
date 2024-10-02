@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Brain.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tmenkovi <tmenkovi@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: tmenkovi <tmenkovi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 18:09:45 by tmenkovi          #+#    #+#             */
-/*   Updated: 2024/06/17 18:09:46 by tmenkovi         ###   ########.fr       */
+/*   Updated: 2024/10/02 15:46:59 by tmenkovi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,23 @@
 
 Brain::Brain()
 {
-	cout << "You finally got a brain! :)" << endl;
+	std::cout << "You finally got a brain! :)" << std::endl;
 }
 
 Brain::Brain(const Brain &copy)
 {
-	cout << "Brain Copy Constructor called" << endl;
+	std::cout << "Brain Copy Constructor called" << std::endl;
 	*this = copy;
 }
 
 Brain::~Brain()
 {
-	cout << "You don't have brain anymore :(" << endl;
+	std::cout << "You don't have brain anymore :(" << std::endl;
 }
 
 Brain &Brain::operator=(const Brain &src)
 {
-	cout << "Brain Assignation operator called" << endl;
+	std::cout << "Brain Assignation operator called" << std::endl;
 	if (this == &src)
 		return *this;
 	for (int i = 0; i < 100; i++)
@@ -41,7 +41,7 @@ Brain &Brain::operator=(const Brain &src)
 	return *this;
 }
 
-const string	Brain::getIdea(size_t i) const
+const std::string	Brain::getIdea(size_t i) const
 {
 	if (i < 100)
 		return(this->_ideas[i]);
@@ -49,21 +49,21 @@ const string	Brain::getIdea(size_t i) const
 		return ("\033[33mBrain can't think about more than 100 ideas at the same time :(((\033[0m");
 }
 
-const string *Brain::getIdeaAddress(size_t i)const
+const std::string *Brain::getIdeaAddress(size_t i)const
 {
 	if (i < 100)
 	{
-		const string	&stringREF = this->_ideas[i];
+		const std::string	&stringREF = this->_ideas[i];
 		return(&stringREF);
 	}
 	else
 		return (NULL);
 }
 
-void	Brain::setIdea(size_t i, string idea)
+void	Brain::setIdea(size_t i, std::string idea)
 {
 	if (i < 100)
 		this->_ideas[i] = idea;
 	else
-		cout << "\033[33mBrain can't think about more than 100 ideas at the same time :(((\033[0m" << endl;
+		std::cout << "\033[33mBrain can't think about more than 100 ideas at the same time :(((\033[0m" << std::endl;
 }

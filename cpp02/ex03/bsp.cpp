@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   bsp.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tmenkovi <tmenkovi@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: tmenkovi <tmenkovi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 16:03:51 by tmenkovi          #+#    #+#             */
-/*   Updated: 2024/06/06 16:03:52 by tmenkovi         ###   ########.fr       */
+/*   Updated: 2024/10/02 11:52:43 by tmenkovi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,8 @@ bool bsp(Point const a, Point const b, Point const c, Point const point)
     Fixed pacArea = triangleArea(point, c, a);
     Fixed pabArea = triangleArea(point, a, b);
 
-	cout << "Area of partitioned triangles: " << pbcArea + pacArea + pabArea << endl;
-	cout << "Area of original triangle: " << abcArea << endl;
+	std::cout << "Area of partitioned triangles: " << pbcArea + pacArea + pabArea << std::endl;
+	std::cout << "Area of original triangle: " << abcArea << std::endl;
 
 	return (abcArea == (pbcArea + pacArea + pabArea));
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Animal.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tmenkovi <tmenkovi@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: tmenkovi <tmenkovi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 17:10:18 by tmenkovi          #+#    #+#             */
-/*   Updated: 2024/06/17 17:10:19 by tmenkovi         ###   ########.fr       */
+/*   Updated: 2024/10/02 15:30:04 by tmenkovi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,23 +16,18 @@
 #include <iostream>
 #include <string>
 
-using std::string;
-using std::cout;
-using std::cin;
-using std::endl;
-
 class Animal
 {
 	protected:
-		string _type;
+		std::string _type;
 
 	public:
 		Animal();
-        Animal(string name);
+        Animal(std::string name);
 		Animal(const Animal &copy);
 		virtual ~Animal();
 		Animal &operator=(const Animal &src);
 
 		virtual void makeSound(void)const;
-		string getType(void)const;
+		std::string getType(void)const;
 };

@@ -3,22 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   HumanA.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tmenkovi <tmenkovi@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: tmenkovi <tmenkovi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 08:43:29 by tmenkovi          #+#    #+#             */
-/*   Updated: 2024/06/03 08:43:30 by tmenkovi         ###   ########.fr       */
+/*   Updated: 2024/10/02 11:08:08 by tmenkovi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "HumanA.hpp"
 
-HumanA::HumanA(std::string name, Weapon& weapon) : _name(name), _weapon(weapon)
-{
-}
+HumanA::HumanA(std::string name, Weapon& weapon) : _name(name), _weapon(weapon) {}
 
-HumanA::~HumanA()
-{
-}
+HumanA::~HumanA() {}
 
 void HumanA::attack() const
 {

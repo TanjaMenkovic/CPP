@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Dog.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tmenkovi <tmenkovi@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: tmenkovi <tmenkovi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 17:10:40 by tmenkovi          #+#    #+#             */
-/*   Updated: 2024/06/17 17:10:41 by tmenkovi         ###   ########.fr       */
+/*   Updated: 2024/10/02 15:27:43 by tmenkovi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,23 +15,23 @@
 Dog::Dog(): Animal()
 {
 	this->_type = "Dog";
-	cout << "Dog is created" << endl;
+	std::cout << "Dog is created" << std::endl;
 }
 
 Dog::Dog(const Dog &copy): Animal()
 {
-	cout << "Dog Copy Constructor called" << endl;
+	std::cout << "Dog Copy Constructor called" << std::endl;
 	*this = copy;
 }
 
 Dog::~Dog()
 {
-	cout << "Dog is destroyed!" << endl;
+	std::cout << "Dog is destroyed!" << std::endl;
 }
 
 Dog &Dog::operator=(const Dog &src)
 {
-	cout << "Dog Assignation operator called" << endl;
+	std::cout << "Dog Assignation operator called" << std::endl;
 	if (this == &src)
 		return *this;
 
@@ -41,5 +41,5 @@ Dog &Dog::operator=(const Dog &src)
 
 void	Dog::makeSound(void)const
 {
-	cout << this->getType() << " says: AVV AVVVVV!!!" << endl;
+	std::cout << this->getType() << " says: AVV AVVVVV!!!" << std::endl;
 }

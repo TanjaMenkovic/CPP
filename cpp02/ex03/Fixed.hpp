@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tmenkovi <tmenkovi@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: tmenkovi <tmenkovi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 16:03:12 by tmenkovi          #+#    #+#             */
-/*   Updated: 2024/06/06 16:03:14 by tmenkovi         ###   ########.fr       */
+/*   Updated: 2024/10/02 11:51:58 by tmenkovi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,6 @@
 # define FIXED_HPP
 
 # include <iostream>
-
-using std::cout;
-using std::endl;
-using std::ostream;
 
 class Fixed {
 	private:
@@ -28,7 +24,7 @@ class Fixed {
 		static int customRound(float value); 
 
 	public:
-		Fixed(void); // default constructor
+		Fixed(); // default constructor
 		
 		// parametrized constructors
 		Fixed(const int inInt);
@@ -37,7 +33,7 @@ class Fixed {
 		// copy constructor
 		Fixed(const Fixed &to_copy);
 		//destructor
-		~Fixed(void); 
+		~Fixed(); 
 
 		// copy assignment operator overload
 		Fixed &operator=(const Fixed &original); 
@@ -69,6 +65,6 @@ class Fixed {
 		static const Fixed& max(const Fixed &a, const Fixed &b);
 };
 
-ostream &operator<<(ostream &stream, const Fixed &nbr);
+std::ostream &operator<<(std::ostream &stream, const Fixed &nbr);
 
 #endif

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tmenkovi <tmenkovi@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: tmenkovi <tmenkovi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 16:03:38 by tmenkovi          #+#    #+#             */
-/*   Updated: 2024/06/06 16:03:41 by tmenkovi         ###   ########.fr       */
+/*   Updated: 2024/10/02 11:54:00 by tmenkovi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,18 +48,24 @@ If P lies inside the triangle, then A1 + A2 + A3 must be equal to A.
 
 int main(void)
 {
-    cout << "Is (30, 15) inside of triangle: (0, 0) (10, 30) (20, 0)?" << endl;
-	if ( bsp( Point(0, 0), Point(10, 30), Point(20, 0), Point(30, 15) ) == true ) {
-        cout << "Point is in the triangle\n" << endl;
-    } else {
-        cout << "Point is not in the triangle\n" << endl;
+    std::cout << "Is (30, 15) inside of triangle: (0, 0) (10, 30) (20, 0)?" << std::endl;
+	if ( bsp( Point(0, 0), Point(10, 30), Point(20, 0), Point(30, 15) ) == true ) 
+    {
+        std::cout << "Point is in the triangle\n" << std::endl;
+    } 
+    else 
+    {
+        std::cout << "Point is not in the triangle\n" << std::endl;
     }
 
-    cout << "Is (10, 2) inside of triangle: (0, 0) (10, 30) (20, 0)?" << endl;
-	if ( bsp( Point(0, 0), Point(10, 30), Point(20, 0), Point(10, 2) ) == true ) {
-        cout << "Point is in the triangle\n" << endl;
-    } else {
-        cout << "Point is not in the triangle\n" << endl;
+    std::cout << "Is (10, 2) inside of triangle: (0, 0) (10, 30) (20, 0)?" << std::endl;
+	if ( bsp( Point(0, 0), Point(10, 30), Point(20, 0), Point(10, 2) ) == true ) 
+    {
+        std::cout << "Point is in the triangle\n" << std::endl;
+    } 
+    else 
+    {
+        std::cout << "Point is not in the triangle\n" << std::endl;
     }
 
 	return 0;

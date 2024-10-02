@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tmenkovi <tmenkovi@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: tmenkovi <tmenkovi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 18:09:53 by tmenkovi          #+#    #+#             */
-/*   Updated: 2024/06/17 18:09:56 by tmenkovi         ###   ########.fr       */
+/*   Updated: 2024/10/02 15:39:06 by tmenkovi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,10 @@
 #include <string>
 #include <iostream>
 
-using std::string;
-using std::cout;
-using std::cin;
-using std::endl;
-
 class Brain
 {
 	private:
-		string _ideas[100];
+		std::string _ideas[100];
 
 	public:
 		Brain();
@@ -31,8 +26,8 @@ class Brain
 		virtual ~Brain();
 		Brain &operator=(const Brain &src);
 
-		const string getIdea(size_t i)const;
-		const string *getIdeaAddress(size_t i)const;
+		const std::string getIdea(size_t i)const;
+		const std::string *getIdeaAddress(size_t i)const;
 
-		void setIdea(size_t i, string idea);
+		void setIdea(size_t i, std::string idea);
 };

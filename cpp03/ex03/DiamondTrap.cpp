@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   DiamondTrap.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tmenkovi <tmenkovi@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: tmenkovi <tmenkovi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/15 12:09:15 by tmenkovi          #+#    #+#             */
-/*   Updated: 2024/06/15 12:09:17 by tmenkovi         ###   ########.fr       */
+/*   Updated: 2024/10/02 15:22:29 by tmenkovi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,10 @@ DiamondTrap &DiamondTrap::operator=(const DiamondTrap &src)
 
 void	DiamondTrap::whoAmI(void)
 {
-	std::cout << "Hello I am a DiamondTrap named " << this->_name <<
-	" and I am originated from the ClapTrap named " << ClapTrap::_name << "." <<
-	std::endl;
+	std::cout << "Hello I am a DiamondTrap named " << this->_name << " and I am originated from the ClapTrap named " << ClapTrap::_name << "." << std::endl;
+}
+
+void	DiamondTrap::attack(const std::string &target)
+{
+	ScavTrap::attack(target);
 }

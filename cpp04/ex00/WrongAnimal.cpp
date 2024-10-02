@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   WrongAnimal.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tmenkovi <tmenkovi@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: tmenkovi <tmenkovi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 17:10:57 by tmenkovi          #+#    #+#             */
-/*   Updated: 2024/06/17 17:10:58 by tmenkovi         ###   ########.fr       */
+/*   Updated: 2024/10/02 15:29:34 by tmenkovi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,30 +15,30 @@
 /* constructors */
 WrongAnimal::WrongAnimal(): _type("default")
 {
-	cout << "Default WrongAnimal is created" << endl;
+	std::cout << "Default WrongAnimal is created" << std::endl;
 }
 
-WrongAnimal::WrongAnimal(string name): _type(name)
+WrongAnimal::WrongAnimal(std::string name): _type(name)
 {
-	cout << "WrongAnimal named " << name << " is created!" << endl;
+	std::cout << "WrongAnimal named " << name << " is created!" << std::endl;
 }
 
 WrongAnimal::WrongAnimal(const WrongAnimal &copy)
 {
-	cout << "WrongAnimal Copy Constructor called" << endl;
+	std::cout << "WrongAnimal Copy Constructor called" << std::endl;
 	*this = copy;
 }
 
 /* deconstructor */
 WrongAnimal::~WrongAnimal()
 {
-	cout << "WrongAnimal is destroyed!" << endl;
+	std::cout << "WrongAnimal is destroyed!" << std::endl;
 } 
 
 /* overloaded Operator */
 WrongAnimal &WrongAnimal::operator=(const WrongAnimal &src)
 {
-	cout << "WrongAnimal Assignation operator called" << endl;
+	std::cout << "WrongAnimal Assignation operator called" << std::endl;
 	if (this == &src)
 		return *this;
 
@@ -49,11 +49,11 @@ WrongAnimal &WrongAnimal::operator=(const WrongAnimal &src)
 /* methods */
 void WrongAnimal::makeSound(void)const
 {
-	cout << "This WrongAnimal is making only wrong sounds!" << endl;
+	std::cout << "This WrongAnimal is making only wrong sounds!" << std::endl;
 }
 
 /* getter */ 
-string	WrongAnimal::getType(void)const
+std::string	WrongAnimal::getType(void)const
 {
 	return (this->_type);
 }

@@ -3,17 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tmenkovi <tmenkovi@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: tmenkovi <tmenkovi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 16:08:05 by tmenkovi          #+#    #+#             */
-/*   Updated: 2024/06/06 16:08:15 by tmenkovi         ###   ########.fr       */
+/*   Updated: 2024/10/02 15:19:09 by tmenkovi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "DiamondTrap.hpp"
-
-using std::cout;
-using std::endl;
 
 int main(void)
 {

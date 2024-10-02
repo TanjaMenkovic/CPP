@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   HumanB.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tmenkovi <tmenkovi@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: tmenkovi <tmenkovi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 08:43:46 by tmenkovi          #+#    #+#             */
-/*   Updated: 2024/06/03 08:43:48 by tmenkovi         ###   ########.fr       */
+/*   Updated: 2024/10/02 11:07:59 by tmenkovi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,7 @@ HumanB::HumanB(std::string name) : _name(name)
 	this->_weapon = NULL;
 }
 
-HumanB::~HumanB()
-{
-}
+HumanB::~HumanB() {}
 
 void HumanB::setWeapon(Weapon& weapon)
 {

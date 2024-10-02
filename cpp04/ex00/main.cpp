@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tmenkovi <tmenkovi@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: tmenkovi <tmenkovi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 17:11:37 by tmenkovi          #+#    #+#             */
-/*   Updated: 2024/06/17 17:11:40 by tmenkovi         ###   ########.fr       */
+/*   Updated: 2024/10/02 15:30:42 by tmenkovi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,79 +18,79 @@
 
 int main()
 {
-    cout << "\033[38;5;213mConstructing\033[0m" << endl;
+    std::cout << "\033[38;5;213mConstructing\033[0m" << std::endl;
 	const Animal	*meta = new Animal();
-	cout << endl;
-	cout << "\033[38;5;213mTesting\033[0m" << endl;
+	std::cout << std::endl;
+	std::cout << "\033[38;5;213mTesting\033[0m" << std::endl;
 
-	cout << "Animal _type: " << meta->getType() << endl;
+	std::cout << "Animal _type: " << meta->getType() << std::endl;
 	meta->makeSound();
-	cout << endl;
+	std::cout << std::endl;
 
-	cout << "\033[38;5;213mDeconstructing\033[0m" << endl;
+	std::cout << "\033[38;5;213mDeconstructing\033[0m" << std::endl;
 	delete meta;
-	cout << endl;
+	std::cout << std::endl;
 
-	cout << "-------------------------------------------------------" << endl;
+	std::cout << "-------------------------------------------------------" << std::endl;
 
-	cout << endl;
-	cout << "\033[34mConstructing\033[0m" << endl;
+	std::cout << std::endl;
+	std::cout << "\033[34mConstructing\033[0m" << std::endl;
 	const Animal	*catto = new Cat();
-	cout << endl;
+	std::cout << std::endl;
 
-	cout << "\033[34mTesting\033[0m" << endl;
-	cout << "Cat _type: " << catto->getType() << endl;
+	std::cout << "\033[34mTesting\033[0m" << std::endl;
+	std::cout << "Cat _type: " << catto->getType() << std::endl;
 	catto->makeSound();
-	cout << endl;
+	std::cout << std::endl;
 
-	cout << "\033[34mDeconstructing\033[0m" << endl;
+	std::cout << "\033[34mDeconstructing\033[0m" << std::endl;
 	delete catto;
-	cout << endl;
+	std::cout << std::endl;
 
-	cout << "-------------------------------------------------------" << endl;
+	std::cout << "-------------------------------------------------------" << std::endl;
 
-	cout << endl;
-	cout << "\033[34mConstructing\033[0m" << endl;
+	std::cout << std::endl;
+	std::cout << "\033[34mConstructing\033[0m" << std::endl;
 	const Animal	*doggo = new Dog();
-	cout << endl;
-	cout << "\033[34mTesting\033[0m" << endl;
-	cout << "Dog _type: " << doggo->getType() << endl;
+	std::cout << std::endl;
+	std::cout << "\033[34mTesting\033[0m" << std::endl;
+	std::cout << "Dog _type: " << doggo->getType() << std::endl;
 	doggo->makeSound();
-	cout << endl;
-	cout << "\033[34mDeconstructing\033[0m" << endl;
+	std::cout << std::endl;
+	std::cout << "\033[34mDeconstructing\033[0m" << std::endl;
 	delete doggo;
-	cout << endl;
+	std::cout << std::endl;
 
-	cout << "-------------------------------------------------------" << endl;
+	std::cout << "-------------------------------------------------------" << std::endl;
 
-	cout << endl;
-	cout << "\033[38;5;213mConstructing\033[0m" << endl;
+	std::cout << std::endl;
+	std::cout << "\033[38;5;213mConstructing\033[0m" << std::endl;
 	const WrongAnimal	*wrong_meta = new WrongAnimal();
-	cout << endl;
+	std::cout << std::endl;
 
-	cout << "\033[38;5;213mTesting\033[0m" << endl;
-	cout << "Animal _type: " << wrong_meta->getType() << endl;
+	std::cout << "\033[38;5;213mTesting\033[0m" << std::endl;
+	std::cout << "Animal _type: " << wrong_meta->getType() << std::endl;
 	wrong_meta->makeSound();
-	cout << endl;
+	std::cout << std::endl;
 
-	cout << "\033[38;5;213mDeconstructing\033[0m" << endl;
+	std::cout << "\033[38;5;213mDeconstructing\033[0m" << std::endl;
 	delete wrong_meta;
-	cout << endl;
+	std::cout << std::endl;
 
-	cout << "-------------------------------------------------------" << endl;
+	std::cout << "-------------------------------------------------------" << std::endl;
 
-	cout << "\033[34mConstructing\033[0m" << endl;
+	std::cout << "\033[34mConstructing\033[0m" << std::endl;
 	const WrongAnimal	*wrong_catto = new WrongCat();
-	cout << endl;
+	std::cout << std::endl;
 
-	cout << "\033[34mTesting\033[0m" << endl;
-	cout << "WrongCat _type: " << wrong_catto->getType() << endl;
+	std::cout << "\033[34mTesting\033[0m" << std::endl;
+	std::cout << "WrongCat _type: " << wrong_catto->getType() << std::endl;
 	wrong_catto->makeSound();
-	cout << endl;
+	std::cout << std::endl;
 
-	cout << "\033[34mDeconstructing\033[0m" << endl;
+	std::cout << "\033[34mDeconstructing\033[0m" << std::endl;
 	delete wrong_catto;
-	cout << endl;
+	std::cout << std::endl;
 
     return 0;
 }

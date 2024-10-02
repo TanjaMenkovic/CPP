@@ -3,53 +3,50 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tmenkovi <tmenkovi@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: tmenkovi <tmenkovi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 16:05:32 by tmenkovi          #+#    #+#             */
-/*   Updated: 2024/06/06 16:05:35 by tmenkovi         ###   ########.fr       */
+/*   Updated: 2024/10/02 11:59:15 by tmenkovi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
-
-using std::cout;
-using std::endl;
 
 int main(void)
 {
 	ScavTrap Maslina("Maslina");
 	ScavTrap Safa("Safa");
 
-	cout << endl;
+	std::cout << std::endl;
 
 	Maslina.attack("Safa");
 	Safa.takeDamage(5);
 
-	cout << endl;
+	std::cout << std::endl;
 
 	Maslina.attack("Safa");
 	Safa.takeDamage(1);
 
-	cout << endl;
+	std::cout << std::endl;
 
 	Maslina.attack("Safa");
 	Safa.takeDamage(1);
 
-	cout << endl;
+	std::cout << std::endl;
 
 	Safa.beRepaired(7);
 
-	cout << endl;
+	std::cout << std::endl;
 
 	Maslina.attack("Safa");
 	Safa.takeDamage(10);
 
-	cout << endl;
+	std::cout << std::endl;
 
 	Maslina.guardGate();
 	Safa.guardGate();
 
-	cout << endl;
+	std::cout << std::endl;
 
 	return EXIT_SUCCESS;
 }

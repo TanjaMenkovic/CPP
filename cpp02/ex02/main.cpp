@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tmenkovi <tmenkovi@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: tmenkovi <tmenkovi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 16:02:46 by tmenkovi          #+#    #+#             */
-/*   Updated: 2024/06/06 16:02:48 by tmenkovi         ###   ########.fr       */
+/*   Updated: 2024/10/02 11:50:31 by tmenkovi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,13 +59,13 @@ int main(void) {
 	Fixed a;
 	
 	Fixed const b( Fixed( 5.05f ) * Fixed( 2 ) );
-	cout << a << endl;
-	cout << ++a << endl;
-	cout << a << endl;
-	cout << a++ << endl;
-	cout << a << endl;
-	cout << b << endl;
-	cout << Fixed::max( a, b ) << endl;
+	std::cout << a << std::endl;
+	std::cout << ++a << std::endl;
+	std::cout << a << std::endl;
+	std::cout << a++ << std::endl;
+	std::cout << a << std::endl;
+	std::cout << b << std::endl;
+	std::cout << Fixed::max( a, b ) << std::endl;
 
 	return 0;
 }

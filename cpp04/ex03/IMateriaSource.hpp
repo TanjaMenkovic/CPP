@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   IMateriaSource.hpp                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tmenkovi <tmenkovi@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: tmenkovi <tmenkovi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/18 17:44:33 by tmenkovi          #+#    #+#             */
-/*   Updated: 2024/06/18 17:44:34 by tmenkovi         ###   ########.fr       */
+/*   Updated: 2024/10/02 15:50:50 by tmenkovi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,16 +16,10 @@
 #include	<iostream>
 #include	"AMateria.hpp"
 
-using std::string;
-using std::cout;
-using std::cin;
-using std::endl;
-using std::cerr;
-
 class IMateriaSource
 {
 	public:
 		virtual ~IMateriaSource(void) {}
 		virtual void learnMateria(AMateria* materia) = 0;
-		virtual AMateria* createMateria(const string& type) = 0;
+		virtual AMateria* createMateria(const std::string& type) = 0;
 };

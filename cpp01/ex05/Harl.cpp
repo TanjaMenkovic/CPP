@@ -3,38 +3,38 @@
 /*                                                        :::      ::::::::   */
 /*   Harl.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tmenkovi <tmenkovi@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: tmenkovi <tmenkovi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 08:46:09 by tmenkovi          #+#    #+#             */
-/*   Updated: 2024/06/03 08:46:11 by tmenkovi         ###   ########.fr       */
+/*   Updated: 2024/10/02 11:16:17 by tmenkovi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Harl.hpp"
 
-void Harl::debug(void)
+void Harl::debug()
 {
-	cout << "I love having extra bacon for my 7XL-double-cheese-triple-pickle-specialketchup burger. I really do!" << endl;
+	std::cout << "I love having extra bacon for my 7XL-double-cheese-triple-pickle-specialketchup burger. I really do!" << std::endl;
 }
 
-void Harl::info(void)
+void Harl::info()
 {
-	cout << "I cannot believe adding extra bacon costs more money. You didn’t put enough bacon in my burger! If you did, I wouldn’t be asking for more!" << endl;
+	std::cout << "I cannot believe adding extra bacon costs more money. You didn’t put enough bacon in my burger! If you did, I wouldn’t be asking for more!" << std::endl;
 }
 
-void Harl::warning(void)
+void Harl::warning()
 {
-	cout << "I think I deserve to have some extra bacon for free. I’ve been coming for years whereas you started working here since last month." << endl;
+	std::cout << "I think I deserve to have some extra bacon for free. I’ve been coming for years whereas you started working here since last month." << std::endl;
 }
 
-void Harl::error(void)
+void Harl::error()
 {
-	cout << "This is unacceptable! I want to speak to the manager now." << endl;
+	std::cout << "This is unacceptable! I want to speak to the manager now." << std::endl;
 }
 
-int  getLevel(string level)
+int  getLevel(std::string level)
 {
-    const string    levels[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
+    const std::string    levels[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
 
     for (int i = 0; i < 4; i++)
     {
@@ -44,18 +44,18 @@ int  getLevel(string level)
     return -1;
 }
 
-void Harl::complain(string level)
+void Harl::complain(std::string level)
 {
 	if (level.empty())
 	{
-		cerr << "Empty log level, can't log. Harl is being quiet." << endl;
+		std::cerr << "Empty log level, can't log. Harl is being quiet." << std::endl;
 		return ;
 	}
 
     int levelNum = getLevel(level);
     if (levelNum == -1)
     {
-	    cerr << "Could not find that compalint. Please try again."<< endl;
+	    std::cerr << "Could not find that compalint. Please try again."<< std::endl;
         return ;
     }
 

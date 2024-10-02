@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ClapTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tmenkovi <tmenkovi@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: tmenkovi <tmenkovi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 16:04:23 by tmenkovi          #+#    #+#             */
-/*   Updated: 2024/06/06 16:04:25 by tmenkovi         ###   ########.fr       */
+/*   Updated: 2024/10/02 11:57:08 by tmenkovi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,24 +15,21 @@
 
 # include <string>
 # include <iostream>
-
-using std::string;
-using std::cout;
-using std::endl;
+# include <cstdlib>
 
 class ClapTrap {
 	public:
-		ClapTrap(string name);
+		ClapTrap(std::string name);
 		ClapTrap(const ClapTrap &to_copy);
 		ClapTrap& operator=(const ClapTrap &original);
-		~ClapTrap(void);
+		~ClapTrap();
 
-		void attack(const string& target);
+		void attack(const std::string& target);
 		void takeDamage(unsigned int amount);
 		void beRepaired(unsigned int amount);
 
 	private:
-		string			_name;
+		std::string		_name;
 		unsigned int	_hitPoints;
 		unsigned int	_energyPoints;
 		unsigned int	_attackDamage;

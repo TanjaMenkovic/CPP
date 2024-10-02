@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tmenkovi <tmenkovi@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: tmenkovi <tmenkovi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 16:05:14 by tmenkovi          #+#    #+#             */
-/*   Updated: 2024/06/06 16:05:24 by tmenkovi         ###   ########.fr       */
+/*   Updated: 2024/10/02 11:57:57 by tmenkovi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,17 @@
 # define SCAVTRAP_HPP
 
 # include "ClapTrap.hpp"
-class ScavTrap : public ClapTrap {
+
+class ScavTrap : public ClapTrap 
+{
 
 	public:
-		ScavTrap(string _name);
+		ScavTrap(std::string _name);
 		ScavTrap(const ScavTrap &to_copy);
 		ScavTrap& operator=(const ScavTrap &original);
-		~ScavTrap(void);
+		~ScavTrap();
 
-		void attack(const string& target);
+		void attack(const std::string& target);
 		void guardGate(void);
 
 	private:

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Cat.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tmenkovi <tmenkovi@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: tmenkovi <tmenkovi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 17:10:26 by tmenkovi          #+#    #+#             */
-/*   Updated: 2024/06/17 17:10:27 by tmenkovi         ###   ########.fr       */
+/*   Updated: 2024/10/02 15:28:05 by tmenkovi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,23 +15,23 @@
 Cat::Cat(): Animal()
 {
 	this->_type = "Cat";
-	cout << "Cat is created" << endl;
+	std::cout << "Cat is created" << std::endl;
 }
 
 Cat::Cat(const Cat &copy): Animal()
 {
-	cout << "Cat Copy Constructor called" << endl;
+	std::cout << "Cat Copy Constructor called" << std::endl;
 	*this = copy;
 }
 
 Cat::~Cat()
 {
-	cout << "Cat is destroyed!" << endl;
+	std::cout << "Cat is destroyed!" << std::endl;
 }
 
 Cat &Cat::operator=(const Cat &src)
 {
-	cout << "Cat Assignation operator called" << endl;
+	std::cout << "Cat Assignation operator called" << std::endl;
 	if (this == &src)
 		return *this;
 
@@ -41,5 +41,5 @@ Cat &Cat::operator=(const Cat &src)
 
 void	Cat::makeSound(void)const
 {
-	cout << this->getType() << " says: MEEEEEEEOOOOOWWWWW!!!" << endl;
+	std::cout << this->getType() << " says: MEEEEEEEOOOOOWWWWW!!!" << std::endl;
 }

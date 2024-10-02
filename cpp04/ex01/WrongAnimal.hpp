@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tmenkovi <tmenkovi@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: tmenkovi <tmenkovi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 17:11:05 by tmenkovi          #+#    #+#             */
-/*   Updated: 2024/06/17 17:11:07 by tmenkovi         ###   ########.fr       */
+/*   Updated: 2024/10/02 15:38:35 by tmenkovi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,24 +14,20 @@
 
 #include <iostream>
 #include <string>
-
-using std::string;
-using std::cout;
-using std::cin;
-using std::endl;
+#include <cstdlib>
 
 class WrongAnimal
 {
 	protected:
-		string _type;
+		std::string _type;
 
 	public:
 		WrongAnimal();
-        WrongAnimal(string name);
+        WrongAnimal(std::string name);
 		WrongAnimal(const WrongAnimal &copy);
-		virtual ~WrongAnimal();
+		~WrongAnimal();
 		WrongAnimal &operator=(const WrongAnimal &src);
 
-		virtual void makeSound(void)const;
-		string getType(void)const;
+		void makeSound(void)const;
+		std::string getType(void)const;
 };

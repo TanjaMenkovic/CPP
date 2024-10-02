@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Animal.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tmenkovi <tmenkovi@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: tmenkovi <tmenkovi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 17:10:09 by tmenkovi          #+#    #+#             */
-/*   Updated: 2024/06/17 17:10:10 by tmenkovi         ###   ########.fr       */
+/*   Updated: 2024/10/02 15:41:37 by tmenkovi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,30 +15,30 @@
 /* constructors */
 Animal::Animal(): _type("default")
 {
-	cout << "Default animal is created" << endl;
+	std::cout << "Default animal is created" << std::endl;
 }
 
-Animal::Animal(string name): _type(name)
+Animal::Animal(std::string name): _type(name)
 {
-	cout << "Animal named " << name << " is created!" << endl;
+	std::cout << "Animal named " << name << " is created!" << std::endl;
 }
 
 Animal::Animal(const Animal &copy)
 {
-	cout << "Animal Copy Constructor called" << endl;
+	std::cout << "Animal Copy Constructor called" << std::endl;
 	*this = copy;
 }
 
 /* deconstructor */
 Animal::~Animal()
 {
-	cout << "Animal is destroyed!" << endl;
+	std::cout << "Animal is destroyed!" << std::endl;
 } 
 
 /* overloaded Operator */
 Animal &Animal::operator=(const Animal &src)
 {
-	cout << "Animal Assignation operator called" << endl;
+	std::cout << "Animal Assignation operator called" << std::endl;
 	if (this == &src)
 		return *this;
 
@@ -47,7 +47,7 @@ Animal &Animal::operator=(const Animal &src)
 }
 
 /* getter */ 
-string	Animal::getType(void) const
+std::string	Animal::getType(void) const
 {
 	return (this->_type);
 }

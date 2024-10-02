@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScavTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tmenkovi <tmenkovi@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: tmenkovi <tmenkovi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 16:07:07 by tmenkovi          #+#    #+#             */
-/*   Updated: 2024/06/06 16:07:09 by tmenkovi         ###   ########.fr       */
+/*   Updated: 2024/10/02 15:19:04 by tmenkovi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,20 +17,20 @@ ScavTrap::ScavTrap(void) : ClapTrap()
 	this->_hitPoints = 100;
 	this->_energyPoints = 50;
 	this->_attackDamage = 20;
-	cout << "Sub Class (ScavTrap) constructor has been called" << endl;
+	std::cout << "Sub Class (ScavTrap) constructor has been called" << std::endl;
 }
 
-ScavTrap::ScavTrap(string name) : ClapTrap(name)
+ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
 {
 	this->_hitPoints = 100;
 	this->_energyPoints = 50;
 	this->_attackDamage = 20;
-	cout << "Sub Class (ScavTrap) constructor has been called" << endl;
+	std::cout << "Sub Class (ScavTrap) constructor has been called" << std::endl;
 }
 
 ScavTrap::ScavTrap(const ScavTrap &to_copy): ClapTrap(to_copy)
 {
-	cout << "Sub class (ScavTrap) copy constructor has been called!" << endl;
+	std::cout << "Sub class (ScavTrap) copy constructor has been called!" << std::endl;
 }
 
 ScavTrap& ScavTrap::operator=(const ScavTrap &original)
@@ -42,26 +42,26 @@ ScavTrap& ScavTrap::operator=(const ScavTrap &original)
 		this->_energyPoints = original._energyPoints;
 		this->_attackDamage = original._attackDamage;
 	}
-	cout << "Copy assignment constructor has been called!" << endl;
+	std::cout << "Copy assignment constructor has been called!" << std::endl;
 	return *this;
 }
 
 ScavTrap::~ScavTrap(void)
 {
-	cout << "Sub Class (ScavTrap) destructor has been called" << endl;
+	std::cout << "Sub Class (ScavTrap) destructor has been called" << std::endl;
 }
 
-void ScavTrap::attack(const string& target)
+void ScavTrap::attack(const std::string& target)
 {
 	if (this->_energyPoints == 0)
 	{
-		cout << "ScavTrap is out of energy points!" << endl;
+		std::cout << "ScavTrap is out of energy points!" << std::endl;
 		return ;
 	}
-	cout << "ScavTrap " << this->_name << " attacks " << target << "!" << endl;
+	std::cout << "ScavTrap " << this->_name << " attacks " << target << "!" << std::endl;
 	this->_energyPoints -= 1;
 }
 
 void ScavTrap::guardGate(void) {
-	cout << "ScarvTrap " << this->_name << " is now in Gate keeper mode!" << endl;
+	std::cout << "ScarvTrap " << this->_name << " is now in Gate keeper mode!" << std::endl;
 }

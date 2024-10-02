@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tmenkovi <tmenkovi@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: tmenkovi <tmenkovi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 08:46:26 by tmenkovi          #+#    #+#             */
-/*   Updated: 2024/06/03 08:46:28 by tmenkovi         ###   ########.fr       */
+/*   Updated: 2024/10/02 11:18:26 by tmenkovi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,28 +14,28 @@
 
 int main(void)
 {
-    string  input;
+    std::string  input;
     Harl    harl;
 
-    cout << "\n\nPick what kind of complain you want Harl to do.\n" << endl;
-    cout << "Your options are:\nDEBUG\nINFO\nWARNING\nERROR\n" << endl;
+    std::cout << "\n\nPick what kind of complain you want Harl to do.\n" << std::endl;
+    std::cout << "Your options are:\nDEBUG\nINFO\nWARNING\nERROR\n" << std::endl;
 
     while (1)
     {
-        cout << "Harl is compalining about..." << endl;
-        getline(cin, input);
-        if (cin.eof() == true)
+        std::cout << "Harl is compalining about..." << std::endl;
+        getline(std::cin, input);
+        if (std::cin.eof() == true)
         {
-            cin.clear();
-            clearerr(stdin);
-            cout << endl;
+            std::cin.clear();
+            std::cin.ignore();
+            std::cout << std::endl;
         }
         if (input.empty())
-            cout << "Please insert one of offered values." << endl;
+            std::cout << "Please insert one of offered values." << std::endl;
         else
         {
             harl.complain(input);
-            cout << endl;
+            std::cout << std::endl;
             if (getLevel(input) != -1)
                 break ;
         }
