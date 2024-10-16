@@ -3,7 +3,8 @@
 #include <string>
 #include <iostream>
 #include <fstream>
-#include <alhorithm>
+//#include <alhorithm>
+#include <map>
 #include <exception>
 #include <sstream>
 #include <cstdlib>  // for atoi
@@ -14,7 +15,7 @@
 class BitcoinExchange
 {
     private:
-    std::map<std::string, double> btcPrices; // Map of date (YYYY-MM-DD) to Bitcoin price
+        std::map<std::string, double> btcPrices; // Map of date (YYYY-MM-DD) to Bitcoin price
 
     public:
         BitcoinExchange(void);
@@ -24,7 +25,7 @@ class BitcoinExchange
 	    BitcoinExchange	&operator =(const BitcoinExchange &src);
 
         void        loadPrices(const std::string& filename); 
-        std::string findClosestDate(const std::string& date); 
+        std::string findClosestDate(const std::string& date) const; 
         void        processInputFile(const std::string& inputFile);
 
         class CantReadDataFileException: public std::exception 

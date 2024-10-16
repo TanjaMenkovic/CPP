@@ -2,7 +2,7 @@ NAME =  btc
 
 BUILD_FLAGS = -Wall -Wextra -std=c++11 -Werror
 
-SRC =	BitcoinExchange
+SRC =	BitcoinExchange Date
 
 H =		BitcoinExchange Date
 
