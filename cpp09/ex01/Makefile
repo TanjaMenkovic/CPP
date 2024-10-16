@@ -1,10 +1,10 @@
-NAME =
+NAME = RPN
 
 BUILD_FLAGS = -Wall -Wextra -std=c++11 -Werror
 
-SRC =	
+SRC =	RPN
 
-H =	
+H =	RPN
 
 SRC_SUFF = $(addsuffix .cpp, $(SRC))
 HEADER_SUFF = $(addsuffix .hpp, $(SRC))
