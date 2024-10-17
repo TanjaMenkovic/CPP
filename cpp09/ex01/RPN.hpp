@@ -2,6 +2,7 @@
 
 #include <iostream>
 #include <stack>
+#include <cctype>
 
 class RPN
 {
@@ -14,5 +15,29 @@ class RPN
 	    ~RPN();
 	    RPN &operator=(const RPN &var);
 	    
-        void calculate(std::string input);	
+        void rpn(std::string input);	
+
+        class InvalidInput : public std::exception
+	    {
+		    public:
+                virtual const char* what() const throw();
+	    };
+
+        class EmptyInput : public std::exception
+	    {
+		    public:
+                virtual const char* what() const throw();
+	    };
+
+        class DivisionZero : public std::exception
+	    {
+		    public:
+                virtual const char* what() const throw();
+	    };
+
+        class InvalidChar : public std::exception
+	    {
+		    public:
+                virtual const char* what() const throw();
+	    };
 };
