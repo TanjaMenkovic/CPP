@@ -11,8 +11,7 @@
 
 
 /*
-template class will have everything universal
-for any type of container and then subclasses
+template class will have everything universal for any type of container and then subclasses
 will be separately vectors and lists
 
 class S - sequence
@@ -22,22 +21,34 @@ template <class S, class P>
 class PmergeMe
 {
     private:
-        const S seq;
-        U       pairs;
-
+        S   seq;
+        P   pairs;
+        S   sorted;
 
         PmergeMe(const PmergeMe &src);
         PmergeMe &operator=(const PmergeMe &src);
+
+        S setSeq(char *argv[]);
+
     protected:
+        S &getSeq() const;
+        S &getSorted() const;
+        P &getPairs() const;
 
     public:
         PmergeMe();
         PmergeMe(char *argv[]);
         virtual ~PmergeMe();
+
+        void printSeq(bool b);
+
+        class InvalidInput : public std::exception
+	    {
+		    const  char* what() const noexcept
+		    {
+		    	return "Invalid input";
+		    }
+	    };
 };
 
-class PmergeMeVec : public PmergeMe <std::vector<int>, std::vector<std::pair<int, int>>>
-{};
-
-class PmergeMeList  : public PmergeMe <std::list<int>, std::list<std::pair<int, int>>>
-{};
+#include "PmergeMe.tpp"
