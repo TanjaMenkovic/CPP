@@ -71,7 +71,7 @@ void PmergeMe<S, P>::printSeq(bool b)
 {
     S   temp;
     int i = 0;
-    typename S::const_iterator it;
+    typename S::iterator it;
 
     if (b)
     {

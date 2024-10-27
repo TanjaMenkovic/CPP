@@ -30,17 +30,24 @@ class PmergeMe
 
         S setSeq(char *argv[]);
 
+        //helping functions for sorting algorithm
+        void creatingPairs();
+
     protected:
         S &getSeq() const;
         S &getSorted() const;
         P &getPairs() const;
 
     public:
+        double time;
+
         PmergeMe();
         PmergeMe(char *argv[]);
         virtual ~PmergeMe();
 
         void printSeq(bool b);
+
+        void sorting();
 
         class InvalidInput : public std::exception
 	    {
@@ -52,3 +59,4 @@ class PmergeMe
 };
 
 #include "PmergeMe.tpp"
+#include "PmergeMeSort.tpp"
