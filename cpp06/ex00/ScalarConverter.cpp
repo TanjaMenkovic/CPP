@@ -197,12 +197,32 @@ void ScalarConverter::printDouble() const
     }
 }
 
+static bool isValidCharacter(char c)
+{
+    return (isdigit(c) || c == '.' || c == 'f');
+}
+
+bool ScalarConverter::incorrectChar()
+{
+    int numOfDot = 0;
+
+    for(size_t i = 0; i < _input.length(); i++)
+    {
+        if (_input[i] == '.')
+            numOfDot++;
+        if (isValidCharacter(_input[i]) == false || numOfDot > 1 || (_input[i] == 'f' && _input[i + 1]))
+        {
+            std::cout << "char: impossible\nint: impossible\nfloat: impossible\ndouble: impossible\n";
+            return false;
+        }
+    }
+    return true;
+}
+
 void ScalarConverter::detectAndConvert() 
 {
     if (isSpecialCase()) // Check for special cases like "nan", "+inf", etc.
-    {
         return ;
-    }
 
     // Try to convert the input to a double (this covers most cases)
     try 
@@ -232,6 +252,9 @@ void ScalarConverter::convert()
 {
     try 
     {
+        if (incorrectChar() == false)
+            return ;
+
         detectAndConvert();
         printResults();
     } 

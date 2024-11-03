@@ -20,6 +20,7 @@ private:
 
     bool isSpecialCase() const;
     void handleSpecialCase() const;
+    bool incorrectChar();
 
     void printChar() const;
     void printInt() const;

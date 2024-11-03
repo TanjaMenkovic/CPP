@@ -10,6 +10,10 @@ int main() {
     ScalarConverter converter6("98");
     ScalarConverter converter7("9999999999999999999999.9999999999");
     ScalarConverter converter8("-8889");
+    ScalarConverter converter9("42a");
+    ScalarConverter converter10("42.4242.");
+    ScalarConverter converter11("42.44f4242");
+    ScalarConverter converter12("42.0ffff");
 
     std::cout << "\nConverting 42.0f:\n";
     converter1.convert();
@@ -27,6 +31,14 @@ int main() {
     converter7.convert();
     std::cout << "\nConverting -8889:\n";
     converter8.convert();
+    std::cout << "\nConverting 42a:\n";
+    converter9.convert();
+    std::cout << "\nConverting 42.4242.:\n";
+    converter10.convert();
+    std::cout << "\nConverting 42.44f4242:\n";
+    converter11.convert();
+    std::cout << "\nConverting 42.0ffff:\n";
+    converter12.convert();
 
     return 0;
 }
