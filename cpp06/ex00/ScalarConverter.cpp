@@ -153,6 +153,12 @@ void ScalarConverter::printDouble() const
         {
             inputNew.pop_back(); // Remove the last character
         }
+        
+        // Check if the input string starts with '+' and remove it
+        if (!inputNew.empty() && inputNew[0] == '+') 
+        {
+            inputNew.erase(0, 1); // Remove the first character
+        }
 
         // Convert to double
         double valueNew = std::stod(inputNew);
@@ -199,7 +205,7 @@ void ScalarConverter::printDouble() const
 
 static bool isValidCharacter(char c)
 {
-    return (isdigit(c) || c == '.' || c == 'f');
+    return (isdigit(c) || c == '.' || c == 'f' || c == '+' || c == '-');
 }
 
 bool ScalarConverter::incorrectChar()
@@ -210,7 +216,8 @@ bool ScalarConverter::incorrectChar()
     {
         if (_input[i] == '.')
             numOfDot++;
-        if (isValidCharacter(_input[i]) == false || numOfDot > 1 || (_input[i] == 'f' && _input[i + 1]))
+        if (isValidCharacter(_input[i]) == false || numOfDot > 1 || (_input[i] == 'f' && _input[i + 1])
+            || ((_input[i] == '+' || _input[i] == '-') && i != 0))
         {
             std::cout << "char: impossible\nint: impossible\nfloat: impossible\ndouble: impossible\n";
             return false;
@@ -252,10 +259,9 @@ void ScalarConverter::convert()
 {
     try 
     {
+        detectAndConvert();
         if (incorrectChar() == false)
             return ;
-
-        detectAndConvert();
         printResults();
     } 
     catch (const ConversionException &e) 

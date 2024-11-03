@@ -14,6 +14,9 @@ int main() {
     ScalarConverter converter10("42.4242.");
     ScalarConverter converter11("42.44f4242");
     ScalarConverter converter12("42.0ffff");
+    ScalarConverter converter13("+42");
+    ScalarConverter converter14("++42a");
+    ScalarConverter converter15("-42+");
 
     std::cout << "\nConverting 42.0f:\n";
     converter1.convert();
@@ -39,6 +42,12 @@ int main() {
     converter11.convert();
     std::cout << "\nConverting 42.0ffff:\n";
     converter12.convert();
+    std::cout << "\nConverting +42:\n";
+    converter13.convert();
+    std::cout << "\nConverting ++42a:\n";
+    converter14.convert();
+    std::cout << "\nConverting -42+:\n";
+    converter15.convert();
 
     return 0;
 }
