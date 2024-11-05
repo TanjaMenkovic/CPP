@@ -18,6 +18,7 @@ int main() {
     ScalarConverter converter14("++42a");
     ScalarConverter converter15("-42+");
     ScalarConverter converter16("2147483647");
+    ScalarConverter converter17("3402823500000000000000000000000000000001"); //number that can't fit into float
 
     std::cout << "\nConverting 42.0f:\n";
     converter1.convert();
@@ -51,6 +52,8 @@ int main() {
     converter15.convert();
     std::cout << "\nConverting 2147483647:\n";
     converter16.convert();
+    std::cout << "\nConverting 3402823500000000000000000000000000000001:\n";
+    converter17.convert();
 
     return 0;
 }

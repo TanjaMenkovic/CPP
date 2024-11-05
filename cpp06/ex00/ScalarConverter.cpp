@@ -390,9 +390,9 @@ void ScalarConverter::printFloat() const
             }
 
             // Convert to float
-            float testValue = std::stod(_input);
+            // float testValue = std::stod(_input);
             // Print float representation directly
-            std::cout << "float: " << testValue << "f\n";
+            std::cout << "float: " << _value << "f\n";
         } 
         catch (...) 
         {
