@@ -2,12 +2,11 @@ NAME = PmergeMe
 
 BUILD_FLAGS = -Wall -Wextra -std=c++11 -Werror
 
-SRC =	PmergeMe
-
-H =		PmergeMe
+SRC =	PmergeMe PmergeMeList PmergeMeVec
+H =		PmergeMe PmergeMeList PmergeMeVec
 
 SRC_SUFF = $(addsuffix .cpp, $(SRC))
-HEADER_SUFF = $(addsuffix .hpp, $(SRC))
+HEADER_SUFF = $(addsuffix .hpp, $(H))  
 
 SRCO = $(addsuffix .o, $(SRC))
 
