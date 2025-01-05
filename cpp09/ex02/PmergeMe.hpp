@@ -23,7 +23,7 @@ template <class S, class P>
 class PmergeMe
 {
 private:
-    const S seq;          // Input sequence
+    const S seq;    // Input sequence
     P pairs;        // Pairs of elements
     S sorted;       // Sorted elements
     S unsolved;     // Elements to solve
@@ -62,133 +62,64 @@ private:
     }
 
     // Create sorted pairs in descending order (first >= second)
-    // void creatingPairs()
-    // {
-    //     // typename S::const_iterator it = getSeq().begin();
-
-    //     // int         first = *it;
-    //     // int         second;
-
-    //     // for (; it != getSeq().end(); ++it)
-    //     // {
-    //     //     // Check if there's another element to form a pair
-    //     //     if (it != getSeq().end())
-    //     //     {
-    //     //         second = *it;
-    //     //         ++it;
-    //     //         // Swap if necessary to make sure first >= second
-    //     //         if (first < second)
-    //     //             std::swap(first, second);
-
-    //     //         // Store the sorted pair
-    //     //         getPairs().push_back(std::make_pair(first, second));
-    //     //     }
-    //     //     first = *it;
-    //     // }
-    //     typename S::const_iterator it = getSeq().begin();
-    //     while (it != getSeq().end())
-    //     {
-    //         int first = *it++;
-    //         if (it != getSeq().end())
-    //         {
-    //             int second = *it++;
-    //             if (first < second)
-    //                 std::swap(first, second);
-    //             getPairs().push_back(std::make_pair(first, second));
-    //         }
-    //     }
-    // }
     void creatingPairs()
-{
-    typename S::const_iterator it = getSeq().begin();
-    while (it != getSeq().end())
     {
-        int first = *it++;
-        if (it != getSeq().end())
+        typename S::const_iterator it = getSeq().begin();
+        while (it != getSeq().end())
         {
-            int second = *it++;
-            if (first < second)
-                std::swap(first, second);
-            getPairs().push_back(std::make_pair(first, second));
+            int first = *it++;
+            if (it != getSeq().end())
+            {
+                int second = *it++;
+                if (first < second)
+                    std::swap(first, second);
+                getPairs().push_back(std::make_pair(first, second));
+            }
         }
-    }
 
-    // Debug: Print pairs
-    std::cout << "Pairs created: ";
-    for (auto &pair : pairs)
-    {
-        std::cout << "(" << pair.first << ", " << pair.second << ") ";
+        // Debug: Print pairs
+        // std::cout << "Pairs created: ";
+        // for (auto &pair : pairs)
+        // {
+        //     std::cout << "(" << pair.first << ", " << pair.second << ") ";
+        // }
+        // std::cout << std::endl;
     }
-    std::cout << std::endl;
-}
-
 
     // Merge sort the pairs by the first value in descending order
-    // void merge(typename P::iterator begin, typename P::iterator end)
-    // {
-    //     if (std::distance(begin, end) > 1)
-    //     {
-    //         typename P::iterator mid = begin;
-    //         std::advance(mid, std::distance(begin, end) / 2);
-
-    //         merge(begin, mid);
-    //         merge(mid, end);
-
-    //         P first_half(begin, mid);
-    //         P second_half(mid, end);
-
-    //         typename P::iterator it1 = first_half.begin();
-    //         typename P::iterator it2 = second_half.begin();
-    //         typename P::iterator it = begin;
-
-    //         while (it1 != first_half.end() && it2 != second_half.end())
-    //         {
-    //             if (it1->first >= it2->first)
-    //                 *it++ = *it1++;
-    //             else
-    //                 *it++ = *it2++;
-    //         }
-
-    //         while (it1 != first_half.end())
-    //             *it++ = *it1++;
-    //         while (it2 != second_half.end())
-    //             *it++ = *it2++;
-    //     }
-    // }
     void merge(typename P::iterator begin, typename P::iterator mid, typename P::iterator end)
-{
-    P first_half(begin, mid);
-    P second_half(mid, end);
-
-    typename P::iterator it1 = first_half.begin();
-    typename P::iterator it2 = second_half.begin();
-    typename P::iterator it = begin;
-
-    while (it1 != first_half.end() && it2 != second_half.end())
     {
-        if (it1->first <= it2->first)
+        P first_half(begin, mid);
+        P second_half(mid, end);
+
+        typename P::iterator it1 = first_half.begin();
+        typename P::iterator it2 = second_half.begin();
+        typename P::iterator it = begin;
+
+        while (it1 != first_half.end() && it2 != second_half.end())
+        {
+            if (it1->first <= it2->first)
+                *it++ = *it1++;
+            else
+                *it++ = *it2++;
+        }
+        while (it1 != first_half.end())
             *it++ = *it1++;
-        else
+        while (it2 != second_half.end())
             *it++ = *it2++;
     }
-    while (it1 != first_half.end())
-        *it++ = *it1++;
-    while (it2 != second_half.end())
-        *it++ = *it2++;
-}
 
-void mergeSort(typename P::iterator begin, typename P::iterator end)
-{
-    if (std::distance(begin, end) > 1)
+    void mergeSort(typename P::iterator begin, typename P::iterator end)
     {
-        typename P::iterator mid = begin;
-        std::advance(mid, std::distance(begin, end) / 2);
-        mergeSort(begin, mid);
-        mergeSort(mid, end);
-        merge(begin, mid, end);
+        if (std::distance(begin, end) > 1)
+        {
+            typename P::iterator mid = begin;
+            std::advance(mid, std::distance(begin, end) / 2);
+            mergeSort(begin, mid);
+            mergeSort(mid, end);
+            merge(begin, mid, end);
+        }
     }
-}
-
 
     /*
     Jacobsthal Sequence Generator - This function calculates Jacobsthal numbers, 
@@ -233,56 +164,56 @@ void mergeSort(typename P::iterator begin, typename P::iterator end)
     }
 
     typename S::iterator binarySearch(int value, typename S::iterator left, typename S::iterator right)
-{
-    while (std::distance(left, right) > 0)
     {
-        typename S::iterator mid = left;
-        std::advance(mid, std::distance(left, right) / 2);
+        while (std::distance(left, right) > 0)
+        {
+            typename S::iterator mid = left;
+            std::advance(mid, std::distance(left, right) / 2);
 
-        if (value >= *mid) // Change to >= to handle duplicates correctly
-            left = std::next(mid); // Move left forward
-        else
-            right = mid; // Move right backward
+            if (value >= *mid)
+                left = std::next(mid); // Move left forward
+            else
+                right = mid; // Move right backward
+        }
+        return left;
     }
-    return left;
-}
 
-void insertionSort()
-{
-    position = insertSequence(unsolved.size()); // Generate Jacobsthal-based positions
+    void insertionSort()
+    {
+        position = insertSequence(unsolved.size()); // Generate Jacobsthal-based positions
     
-    // Define iterator to track the unsolved elements
-    typename S::iterator unsolvedIt = unsolved.begin();
+        // Define iterator to track the unsolved elements
+        typename S::iterator unsolvedIt = unsolved.begin();
 
-    for (typename S::iterator pos = position.begin(); pos != position.end(); pos++)
-    {
-        // Get the value to insert from `unsolved`
-        typename S::iterator toInsert = unsolvedIt;
-        std::cout << "ELEMENT " << *toInsert << ", POSITION " << *pos << std::endl;
+        for (typename S::iterator pos = position.begin(); pos != position.end(); pos++)
+        {
+            // Get the value to insert from `unsolved`
+            typename S::iterator toInsert = unsolvedIt;
+            // std::cout << "ELEMENT " << *toInsert << ", POSITION " << *pos << std::endl;
 
-        unsolvedIt++; // Move to the next unsolved element for the next iteration
+            unsolvedIt++; // Move to the next unsolved element for the next iteration
 
-        // Perform binary search to find the correct insertion point in `sorted`
-        typename S::iterator realIndex = binarySearch(*toInsert, sorted.begin(), sorted.end());
+            // Perform binary search to find the correct insertion point in `sorted`
+            typename S::iterator realIndex = binarySearch(*toInsert, sorted.begin(), sorted.end());
 
-        // Debug: Print the element being inserted and its position
-        std::cout << "Inserting " << *toInsert << " at position " << std::distance(sorted.begin(), realIndex) << std::endl;
+            // // Debug: Print the element being inserted and its position
+            // std::cout << "Inserting " << *toInsert << " at position " << std::distance(sorted.begin(), realIndex) << std::endl;
 
-        sorted.insert(realIndex, *toInsert); // Insert the element into `sorted`
+            sorted.insert(realIndex, *toInsert); // Insert the element into `sorted`
+        }
+
+        // Handle the last element if the input sequence size is odd and it wasn't inserted
+        if (unsolvedIt != unsolved.end()) 
+        {
+            int val = *unsolvedIt; 
+            typename S::iterator realIndex = binarySearch(val, sorted.begin(), sorted.end());
+
+            // // Debug: Print insertion of the last element
+            // std::cout << "Inserting last element " << val << " at position " << std::distance(sorted.begin(), realIndex) << std::endl;
+
+            sorted.insert(realIndex, val);  // Insert the last element
+        }
     }
-
-    // Handle the last element if the input sequence size is odd and it wasn't inserted
-    if (unsolvedIt != unsolved.end()) // Ensure we still have the last unpaired element
-    {
-        int val = *unsolvedIt; // Last unpaired element
-        typename S::iterator realIndex = binarySearch(val, sorted.begin(), sorted.end());
-
-        // Debug: Print insertion of the last element
-        std::cout << "Inserting last element " << val << " at position " << std::distance(sorted.begin(), realIndex) << std::endl;
-
-        sorted.insert(realIndex, val);  // Insert the last element
-    }
-}
 
 
 protected:
@@ -354,56 +285,54 @@ public:
 
     // Perform sorting
     void sorting()
-{
-    clock_t start = clock();
-
-    if (seq.size() == 1)
     {
-        sorted = seq; // Single element, already sorted
-    }
-    else
-    {
-        // Step 1: Create pairs
-        creatingPairs();
+        clock_t start = clock();
 
-        // Step 2: Sort pairs by the first element
-        mergeSort(pairs.begin(), pairs.end());
-
-        // Step 3: Split pairs into `sorted` (first elements) and `unsolved` (second elements)
-        for (auto pair : pairs)
+        if (seq.size() == 1)
         {
-            sorted.push_back(pair.first);   // Push the larger element into `sorted`
-            unsolved.push_back(pair.second); // Push the smaller element into `unsolved`
+            sorted = seq; // Single element, already sorted
+        }
+        else
+        {
+            // Step 1: Create pairs
+            creatingPairs();
+
+            // Step 2: Sort pairs by the first element
+            mergeSort(pairs.begin(), pairs.end());
+
+            // Step 3: Split pairs into `sorted` (first elements) and `unsolved` (second elements)
+            for (auto pair : pairs)
+            {
+                sorted.push_back(pair.first);   // Push the larger element into `sorted`
+                unsolved.push_back(pair.second); // Push the smaller element into `unsolved`
+            }
+
+            // Debug: Print sorted and unsolved
+            // std::cout << "Sorted (after splitting pairs): ";
+            // for (auto &val : sorted)
+            //     std::cout << val << " ";
+            // std::cout << std::endl;
+
+            // std::cout << "Unsolved (after splitting pairs): ";
+            // for (auto &val : unsolved)
+            //     std::cout << val << " ";
+            // std::cout << std::endl;
+
+            // Step 4: Insert unsolved elements into `sorted` using Jacobsthal and binary search
+            insertionSort();
+
+            // Step 5: Handle the last element if the input sequence size is odd
+            if (seq.size() % 2 != 0)
+            {
+                int lastVal = seq.back(); // Last unpaired element
+                auto realIndex = binarySearch(lastVal, sorted.begin(), sorted.end());
+                sorted.insert(realIndex, lastVal);
+            }
         }
 
-        // Debug: Print sorted and unsolved
-std::cout << "Sorted (after splitting pairs): ";
-for (auto &val : sorted)
-    std::cout << val << " ";
-std::cout << std::endl;
-
-std::cout << "Unsolved (after splitting pairs): ";
-for (auto &val : unsolved)
-    std::cout << val << " ";
-std::cout << std::endl;
-
-        // Step 4: Insert unsolved elements into `sorted` using Jacobsthal and binary search
-        insertionSort();
-
-        // Step 5: Handle the last element if the input sequence size is odd
-        if (seq.size() % 2 != 0)
-        {
-            int lastVal = seq.back(); // Last unpaired element
-            auto realIndex = binarySearch(lastVal, sorted.begin(), sorted.end());
-            sorted.insert(realIndex, lastVal);
-        }
+        // Measure and store time taken for sorting
+        time = static_cast<double>(clock() - start) / CLOCKS_PER_SEC * 1000.0;
     }
-
-    // Measure and store time taken for sorting
-    time = static_cast<double>(clock() - start) / CLOCKS_PER_SEC * 1000.0;
-}
-
-
 
     virtual void printTime() const = 0;
 
