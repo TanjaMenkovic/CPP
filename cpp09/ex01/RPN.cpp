@@ -28,62 +28,64 @@ void RPN::rpn(std::string input)
         throw RPN::EmptyInput();
     else if (input.size() <= 2)
         throw RPN::InvalidInput();
-    
-	for (size_t i = 0; i < input.size(); i++)
+    else
 	{
-        c = input[i];
-
-		if (isspace(c))
-			continue ; // skip whitespace
-        else if (!isdigit(c) && c != '+' && c != '-' && c != '*' && c != '/')
-            throw RPN::InvalidChar();
-		else if (isdigit(c))
+		for (size_t i = 0; i < input.size(); i++)
 		{
-			number = c - '0';
-			numbers.push(number);
-		}
-		else if (c == '+' && numbers.size() >= 2)
-		{
-			b = numbers.top();
-			numbers.pop();
-			a = numbers.top();
-			numbers.pop();
+        	c = input[i];
 
-			numbers.push(a + b);
-		}
-		else if (c == '-' && numbers.size() >= 2)
-		{
-			b = numbers.top();
-			numbers.pop();
-			a = numbers.top();
-			numbers.pop();
+			if (isspace(c))
+				continue ; // skip whitespace
+        	else if (!isdigit(c) && c != '+' && c != '-' && c != '*' && c != '/')
+            	throw RPN::InvalidChar();
+			else if (isdigit(c))
+			{
+				number = c - '0';
+				numbers.push(number);
+			}
+			else if (c == '+' && numbers.size() >= 2)
+			{
+				b = numbers.top();
+				numbers.pop();
+				a = numbers.top();
+				numbers.pop();
 
-			numbers.push(a - b);
-		}
-		else if (c == '*' && numbers.size() >= 2)
-		{
-			b = numbers.top();
-			numbers.pop();
-			a = numbers.top();
-			numbers.pop();
+				numbers.push(a + b);
+			}
+			else if (c == '-' && numbers.size() >= 2)
+			{
+				b = numbers.top();
+				numbers.pop();
+				a = numbers.top();
+				numbers.pop();
 
-			numbers.push(a * b);
-		}
-		else if (c == '/' && numbers.size() >= 2)
-		{
-			b = numbers.top();
-			numbers.pop();
-			a = numbers.top();
-			numbers.pop();
+				numbers.push(a - b);
+			}
+			else if (c == '*' && numbers.size() >= 2)
+			{
+				b = numbers.top();
+				numbers.pop();
+				a = numbers.top();
+				numbers.pop();
 
-            if (b == 0)
-                throw RPN::DivisionZero();
-			numbers.push(a / b);
+				numbers.push(a * b);
+			}
+			else if (c == '/' && numbers.size() >= 2)
+			{
+				b = numbers.top();
+				numbers.pop();
+				a = numbers.top();
+				numbers.pop();
+
+            	if (b == 0)
+                	throw RPN::DivisionZero();
+				numbers.push(a / b);
+			}
+			else
+				throw RPN::InvalidInput();
 		}
-		else
-			throw RPN::InvalidInput();
 	}
-
+	
 	if (numbers.size() == 1)
 	{
 		std::cout << "Result: " << numbers.top() << std::endl;

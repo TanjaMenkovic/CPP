@@ -6,15 +6,15 @@ PmergeMeList::PmergeMeList(char* argv[])
 
 PmergeMeList::~PmergeMeList(){}
 
-// PmergeMeList::PmergeMeList(PmergeMeList const &other) 
-// {
-//   (void)other;
-// }
-
 PmergeMeList &PmergeMeList::operator=(PmergeMeList const &other) 
 {
   (void)other;
   return *this;
+}
+
+PmergeMeList::PmergeMeList(const PmergeMeList& other)
+{
+  (void)other;
 }
 
 void PmergeMeList::printTime() const

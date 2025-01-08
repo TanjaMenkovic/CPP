@@ -77,6 +77,49 @@ std::string BitcoinExchange::findClosestDate(const std::string &date) const
 // Process input file to calculate Bitcoin values based on date and input value
 void BitcoinExchange::processInputFile(const std::string &inputFile)
 {
+    /*
+    checking if file is a directory:
+
+    fileStat: An instance of struct stat that will hold the information about 
+        the file specified by the path inputFile.
+
+    stat Function:
+        - Retrieves information about the file or directory specified by the path 
+        inputFile and stores it in the fileStat structure.
+        - inputFile.c_str(): Converts the C++ string (std::string) into a C-style string 
+        (const char*), which is required by stat.
+        - &fileStat: A pointer to the fileStat structure where the file information will 
+        be stored.
+        - Returns:
+        0: Indicates success, meaning the file/directory exists and stat successfully 
+        retrieved its information.
+        -1: Indicates failure, meaning the file/directory does not exist or cannot be 
+        accessed. This might occur due to insufficient permissions or an invalid path.
+
+    fileStat.st_mode: A field in struct stat that contains the file's mode, including 
+    information about its type and permissions.
+
+    S_ISDIR(fileStat.st_mode): 
+        - A macro that checks if the mode (st_mode) indicates that the path is a directory.
+        - Returns:
+            true if the path refers to a directory.
+            false otherwise (e.g., if it’s a regular file).
+    */
+    struct stat fileStat; 
+    if (stat(inputFile.c_str(), &fileStat) == 0) 
+    {
+        if (S_ISDIR(fileStat.st_mode)) 
+        {
+            std::cerr << "Error: the specified input is a directory, not a file." << std::endl;
+            return;
+        }
+    } else 
+    {
+        std::cerr << "Error: could not stat the file." << std::endl;
+        return;
+    }
+
+    // checking if file can be open
     std::ifstream file(inputFile);
     if (!file.is_open())
     {
@@ -85,7 +128,17 @@ void BitcoinExchange::processInputFile(const std::string &inputFile)
     }
 
     std::string line;
-    std::getline(file, line); // Skip header
+    std::getline(file, line); // reading headerline
+
+    // checking if header line is in a proper way written
+    std::regex pattern(R"(^\s*date\s*\|\s*value\s*$)"); // Regular expression pattern for "date | value"
+    
+    if (!std::regex_match(line, pattern)) 
+    {
+        // If the line does not match the expected pattern
+        std::cerr << "Error: invalid headerline format => " << line << std::endl;
+        // return;
+    }
 
     while (std::getline(file, line))
     {
@@ -99,7 +152,20 @@ void BitcoinExchange::processInputFile(const std::string &inputFile)
             continue;
         }
 
-        dateStr = dateStr.substr(0, dateStr.find_last_not_of(" \t") + 1); // Trim dateStr
+        // Check for any trailing non-whitespace characters in the stream
+        // this will make sure that case "3bsdbsdb" is not gonna be handled as a "3",
+        // but as an incorrect value
+        std::string remaining;
+        if (ss >> remaining) 
+        {
+            // If there's anything left in the stream, it's an error
+            std::cerr << "Error: bad input => " << line << std::endl;
+            continue;
+        }
+
+        // trimming spaces around date
+        dateStr = dateStr.substr(dateStr.find_first_not_of(" \t")); 
+        dateStr = dateStr.substr(0, dateStr.find_last_not_of(" \t") + 1); 
 
         // Parse the date string
         Date date;

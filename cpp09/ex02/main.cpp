@@ -2,6 +2,14 @@
 #include "PmergeMeVec.hpp"
 #include "PmergeMeList.hpp"
 
+/*
+Run code with any type of sequence of numbers like:
+./PmergeMe 634 32 131 5 3 1 44 2 42 5  2 2 2 2 2 2 2 2 
+
+OR
+shuf -i 1-1000 -n 3000 | tr "\n" " " | xargs ./PmergeMe
+*/
+
 int main(int argc, char *argv[])
 {
   if (argc < 2)
@@ -10,6 +18,8 @@ int main(int argc, char *argv[])
   
   try
   {
+    std::cout << std::endl;
+
     PmergeMe< std::vector<int>, std::vector<std::pair<int, int> > > *vector = new PmergeMeVec(argv);
     vector->sorting();
 

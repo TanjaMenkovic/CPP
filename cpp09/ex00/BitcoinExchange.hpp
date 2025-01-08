@@ -9,6 +9,8 @@
 #include <sstream>
 #include <cstdlib>  // for atoi
 #include <iomanip> // for std::setprecision
+#include <sys/stat.h> // for checking is it a directory
+#include <regex> // checking pattern
 
 #include "Date.hpp"
 

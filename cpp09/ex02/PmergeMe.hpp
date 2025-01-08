@@ -38,7 +38,6 @@ private:
     {
         if (this != src)
         {
-            this->number = src.number;
             this->seq = src.seq;
         }
         return *this;
@@ -73,17 +72,18 @@ private:
                 int second = *it++;
                 if (first < second)
                     std::swap(first, second);
-                getPairs().push_back(std::make_pair(first, second));
+                pairs.push_back(std::make_pair(first, second));
             }
         }
 
-        // Debug: Print pairs
+        // DEBUG STARTS
         // std::cout << "Pairs created: ";
         // for (auto &pair : pairs)
         // {
         //     std::cout << "(" << pair.first << ", " << pair.second << ") ";
         // }
         // std::cout << std::endl;
+        // DEBUG ENDS
     }
 
     // Merge sort the pairs by the first value in descending order
@@ -189,15 +189,18 @@ private:
         {
             // Get the value to insert from `unsolved`
             typename S::iterator toInsert = unsolvedIt;
+            // DEBUG STARTS
             // std::cout << "ELEMENT " << *toInsert << ", POSITION " << *pos << std::endl;
+            // DEBUG ENDS
 
             unsolvedIt++; // Move to the next unsolved element for the next iteration
 
             // Perform binary search to find the correct insertion point in `sorted`
             typename S::iterator realIndex = binarySearch(*toInsert, sorted.begin(), sorted.end());
 
-            // // Debug: Print the element being inserted and its position
+            // DEBUG STARTS
             // std::cout << "Inserting " << *toInsert << " at position " << std::distance(sorted.begin(), realIndex) << std::endl;
+            // DEBUG ENDS
 
             sorted.insert(realIndex, *toInsert); // Insert the element into `sorted`
         }
@@ -208,8 +211,9 @@ private:
             int val = *unsolvedIt; 
             typename S::iterator realIndex = binarySearch(val, sorted.begin(), sorted.end());
 
-            // // Debug: Print insertion of the last element
+            // DEBUG STARTS
             // std::cout << "Inserting last element " << val << " at position " << std::distance(sorted.begin(), realIndex) << std::endl;
+            // DEBUG ENDS
 
             sorted.insert(realIndex, val);  // Insert the last element
         }
@@ -227,21 +231,6 @@ protected:
         return sorted;
     }
 
-    P &getPairs()
-    {
-        return pairs;
-    }
-
-    S &getUnsolved() 
-    {
-        return unsolved;
-    }
-
-    S &getPosition() 
-    {
-        return position;
-    }
-
 public:
     double time;
 
@@ -252,14 +241,13 @@ public:
     virtual ~PmergeMe() {}
 
     /*
-     function for printing sequence before and after sorting it
+    function for printing sequence before and after sorting it
     if b == true, it will print sequience before sorting
     if b == false, it will print after sorting
     */
     void printSeq(bool before)
     {
         S   temp;
-        int i = 0;
         typename S::iterator it;
 
         if (before)
@@ -273,14 +261,11 @@ public:
             temp = getSorted();
         }
     
-        for (it = temp.begin(); it != temp.end() && i < 10; it++)
+        for (it = temp.begin(); it != temp.end(); it++)
         {
             std::cout << *it << " ";
-            i++;
-            if (i == 10)
-                std::cout << "...only first 10 elements are shown...";
         }
-        std::cout << std::endl;
+        std::cout << "\n" << std::endl;
     }
 
     // Perform sorting
@@ -307,7 +292,7 @@ public:
                 unsolved.push_back(pair.second); // Push the smaller element into `unsolved`
             }
 
-            // Debug: Print sorted and unsolved
+            // DEBUG STARTS
             // std::cout << "Sorted (after splitting pairs): ";
             // for (auto &val : sorted)
             //     std::cout << val << " ";
@@ -317,6 +302,7 @@ public:
             // for (auto &val : unsolved)
             //     std::cout << val << " ";
             // std::cout << std::endl;
+            // DEBUG ENDS
 
             // Step 4: Insert unsolved elements into `sorted` using Jacobsthal and binary search
             insertionSort();

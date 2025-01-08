@@ -6,10 +6,10 @@ PmergeMeVec::PmergeMeVec(char* argv[])
 
 PmergeMeVec::~PmergeMeVec() {}
 
-// PmergeMeVec::PmergeMeVec(const PmergeMeVec& other)
-// {
-//   (void)other;
-// }
+PmergeMeVec::PmergeMeVec(const PmergeMeVec& other)
+{
+  (void)other;
+}
 
 PmergeMeVec &PmergeMeVec::operator=(PmergeMeVec const &other) 
 {
