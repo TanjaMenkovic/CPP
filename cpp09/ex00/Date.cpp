@@ -1,5 +1,15 @@
 #include "Date.hpp"
 
+bool isDigits(const std::string& str) 
+{
+    for (char c : str)
+    {
+        if (!std::isdigit(c))
+            return false;
+    }
+    return true;
+}
+
 // Function to parse the string "YYYY-MM-DD" into a Date structure
 bool parseDate(const std::string& dateStr, Date &date) 
 {
@@ -7,11 +17,19 @@ bool parseDate(const std::string& dateStr, Date &date)
         return false;
 
     // Extract the year, month, and day parts from the string
+    std::string yearPart = dateStr.substr(0, 4);
+    std::string monthPart = dateStr.substr(5, 2);
+    std::string dayPart = dateStr.substr(8, 2);
+
+    // Validate that all extracted parts are numeric
+    if (!isDigits(yearPart) || !isDigits(monthPart) || !isDigits(dayPart))
+        return false;
+
     try 
     {
-        date.yyyy = std::stoi(dateStr.substr(0, 4));
-        date.mm = std::stoi(dateStr.substr(5, 2));
-        date.dd = std::stoi(dateStr.substr(8, 2));
+        date.yyyy = std::stoi(yearPart);
+        date.mm = std::stoi(monthPart);
+        date.dd = std::stoi(dayPart);
     } 
     catch (std::invalid_argument const& e) 
     {

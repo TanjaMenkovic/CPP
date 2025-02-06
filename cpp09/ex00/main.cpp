@@ -9,7 +9,6 @@ int main(int argc, char *argv[]) {
         return 1;
     }
 
-    // Create a BitcoinExchange instance
     BitcoinExchange btcExchange;
 
     try {

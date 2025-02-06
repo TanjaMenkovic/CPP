@@ -51,10 +51,23 @@ private:
         {
             if (argv[i][0] == '\0')
                 throw InvalidInput();
+
+            /*
+            std::strtol is a function that converts a string to a long int, 
+            stopping at the first non-numeric character and setting a pointer 
+            to indicate where the conversion ended, with support for different 
+            number bases.
+            
+            long int strtol(const char *str, char **endptr, int base);
+                - str → The input string to convert (e.g., argv[i]).
+                - endptr → A pointer to track where parsing stopped.
+                - base → The numerical base (10 for decimal, 16 for hex, etc.).
+            */
             char *endptr;
             int number = std::strtol(argv[i], &endptr, 10);
             if (*endptr != '\0' || number < 0)
                 throw InvalidInput();
+                
             seq.push_back(number);
         }
         return seq;

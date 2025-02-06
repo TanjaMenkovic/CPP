@@ -13,5 +13,6 @@ typedef struct Date
     int yyyy;
 }   Date;
 
+bool isDigits(const std::string& str);
 bool parseDate(const std::string& dateStr, Date &date);
 bool checkDate(Date date);

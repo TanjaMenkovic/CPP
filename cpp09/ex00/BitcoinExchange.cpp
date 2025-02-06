@@ -44,7 +44,11 @@ void BitcoinExchange::loadPrices(const std::string &filename)
         std::string date;
         double price;
 
-        if (std::getline(ss, date, ',') && (ss >> price))
+        /*
+        reading characters from ss and storing them in date by stopping at the delimiter ',' 
+        or when it reaches the end of the stream. the rest of the line (if there is anything) is stored into price.
+        */
+        if (std::getline(ss, date, ',') && (ss >> price)) 
         {
             // Ensure valid date parsing
             Date parsedDate;
@@ -63,10 +67,10 @@ void BitcoinExchange::loadPrices(const std::string &filename)
 // Find the closest date that is <= the given date
 std::string BitcoinExchange::findClosestDate(const std::string &date) const
 {
-    auto it = this->btcPrices.lower_bound(date);
+    auto it = this->btcPrices.lower_bound(date); // lower_bound(date) finds the first entry where the key is greater than or equal to date, or map.end() (one past the last element) if it doesn't find it
     if (it == this->btcPrices.end() || it->first != date)
     {
-        if (it == this->btcPrices.begin())
+        if (it == this->btcPrices.begin()) 
             return ""; // No valid earlier date
 
         --it; // Step to previous date
@@ -130,15 +134,21 @@ void BitcoinExchange::processInputFile(const std::string &inputFile)
     std::string line;
     std::getline(file, line); // reading headerline
 
-    // checking if header line is in a proper way written
-    std::regex pattern(R"(^\s*date\s*\|\s*value\s*$)"); // Regular expression pattern for "date | value"
+    /* 
+    checking if header line is written in a proper way.
+    if this is not uncommented it will always just skip first line
+    since it is not important for our data. but if you would like to test how does it looks when 
+    there is something different written then "date | value" in the first line, 
+    it prints an error and not continue reading other lines, just uncomment next code :D
+    */
+    // std::regex pattern(R"(^\s*date\s*\|\s*value\s*$)"); // Regular expression pattern for "date | value"
     
-    if (!std::regex_match(line, pattern)) 
-    {
-        // If the line does not match the expected pattern
-        std::cerr << "Error: invalid headerline format => " << line << std::endl;
-        // return;
-    }
+    // if (!std::regex_match(line, pattern)) 
+    // {
+    //     // If the line does not match the expected pattern
+    //     std::cerr << "Error: invalid headerline format => " << line << std::endl;
+    //     return;
+    // }
 
     while (std::getline(file, line))
     {

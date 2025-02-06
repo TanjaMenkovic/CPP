@@ -41,12 +41,12 @@ void RPN::rpn(std::string input)
 			else if (isdigit(c))
 			{
 				number = c - '0';
-				numbers.push(number);
+				numbers.push(number); // Adds an element to the top of the stack.
 			}
 			else if (c == '+' && numbers.size() >= 2)
 			{
-				b = numbers.top();
-				numbers.pop();
+				b = numbers.top(); // Returns (but does not remove) the top element of the stack.
+				numbers.pop(); // Removes the top element of the stack.
 				a = numbers.top();
 				numbers.pop();
 
