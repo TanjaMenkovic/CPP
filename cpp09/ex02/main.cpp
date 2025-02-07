@@ -13,13 +13,14 @@ shuf -i 1-1000 -n 3000 | tr "\n" " " | xargs ./PmergeMe
 int main(int argc, char *argv[])
 {
   if (argc < 2)
+  {
+    std::cerr << "Error: not enough arguments." << std::endl;
     return 1; 
+  }
   argv++;
   
   try
   {
-    std::cout << std::endl;
-
     PmergeMe< std::vector<int>, std::vector<std::pair<int, int> > > *vector = new PmergeMeVec(argv);
     vector->sorting();
 
@@ -36,7 +37,7 @@ int main(int argc, char *argv[])
   } 
   catch (std::exception &e) 
   {
-    std::cerr << "\tException caught:" << " " << e.what() << std::endl;
+    std::cerr << "Error: " << e.what() << std::endl;
   }
   return 0;
 }

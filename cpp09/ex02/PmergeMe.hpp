@@ -99,7 +99,10 @@ private:
         // DEBUG ENDS
     }
 
-    // Merge sort the pairs by the first value in descending order
+    /* 
+    Merge sort the pairs by the first value in descending order
+        - recursively splits a collection into two halves, sorts them, and then merges them back together.
+    */
     void merge(typename P::iterator begin, typename P::iterator mid, typename P::iterator end)
     {
         P first_half(begin, mid);
@@ -124,9 +127,15 @@ private:
 
     void mergeSort(typename P::iterator begin, typename P::iterator end)
     {
-        if (std::distance(begin, end) > 1)
+        if (std::distance(begin, end) > 1) // std::distance(begin, end) - Computes the number of elements between begin and end.
         {
             typename P::iterator mid = begin;
+            /*
+            std::distance(begin, end) / 2 - Finds the middle index (integer division).
+
+            std::advance(mid, ...) - Moves the iterator mid forward by the computed number of steps.
+            Example: If mid starts at begin, std::advance(mid, 2) moves it 2 positions forward.
+            */
             std::advance(mid, std::distance(begin, end) / 2);
             mergeSort(begin, mid);
             mergeSort(mid, end);
@@ -148,13 +157,16 @@ private:
         return jacobsthal(n - 1) + 2 * jacobsthal(n - 2);
     }
 
+    /*
+    insertSequence - generates a sequence of indices using the Jacobsthal numbers 
+    to determine the order of element insertions.
+    */
     S insertSequence(size_t n)
     {
         S jacobSequence;
         S insertSeq;
         size_t index = 3;
 
-        // Generate Jacobsthal sequence
         size_t value = jacobsthal(index);
         while (value < n - 1)
         {
@@ -176,6 +188,15 @@ private:
         return insertSeq;
     }
 
+    /*
+    binarySearch - performs a binary search on a sorted sequence S and returns an iterator 
+    pointing to the correct insertion position for value.
+    
+    Parameters:
+        - value: The integer to search for.
+        - left: Iterator to the beginning of the search range.
+        - right: Iterator to the end of the search range.
+    */
     typename S::iterator binarySearch(int value, typename S::iterator left, typename S::iterator right)
     {
         while (std::distance(left, right) > 0)
@@ -191,6 +212,11 @@ private:
         return left;
     }
 
+    /*
+    insertionSort - a simple comparison-based sorting algorithm that builds the sorted list one element 
+    at a time by placing each new element in its correct position.
+    Uses Jacobsthal numbers to determine an optimized insertion order.
+    */
     void insertionSort()
     {
         position = insertSequence(unsolved.size()); // Generate Jacobsthal-based positions
